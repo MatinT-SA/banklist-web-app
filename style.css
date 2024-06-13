@@ -30,6 +30,10 @@ body {
     background-size: cover;
 }
 
+/* ❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃ */
+/* ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬╣ Navigation ╠▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬ */
+/* ❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃ */
+
 nav {
     display: flex;
     justify-content: space-between;
@@ -37,7 +41,15 @@ nav {
     padding: 0 2rem;
 }
 
-.welcome {
+.nav__right {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 3rem;
+}
+
+.intro-sentence {
     font-size: 2rem;
     font-weight: 500;
 }
@@ -111,7 +123,7 @@ nav {
     grid-template-rows: auto repeat(3, 15rem) auto;
     gap: 2rem;
 
-    opacity: 0;
+    opacity: 1;
     transition: all 1s;
 }
 
