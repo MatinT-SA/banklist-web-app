@@ -7,28 +7,28 @@
 // Data
 const account1 = {
     owner: 'Matin Taherzadeh',
-    movements: [200, 450, -400, 3000, -650, -130, 70, 1300],
+    movements: [500, -200, 1500, -700, 800, 250, -100, 1300],
     interestRate: 1.2, // %
     pin: 1111,
 };
 
 const account2 = {
     owner: 'Roger Federer',
-    movements: [5000, 3400, -150, -790, -3210, -1000, 8500, -30],
+    movements: [7000, -3000, 4500, -1500, 2000, -1200, 1000, -500],
     interestRate: 1.5,
     pin: 2222,
 };
 
 const account3 = {
     owner: 'Rafael Nadal',
-    movements: [200, -200, 340, -300, -20, 50, 400, -460],
+    movements: [100, -500, 800, -400, 250, -50, 700, -300],
     interestRate: 0.7,
     pin: 3333,
 };
 
 const account4 = {
     owner: 'Novak Djokovic',
-    movements: [430, 1000, 700, 50, 90],
+    movements: [300, 900, -200, 400, 150, -100, 800, 50],
     interestRate: 1,
     pin: 4444,
 };
@@ -60,47 +60,3 @@ const inputTransferAmount = document.querySelector('.form__input--amount');
 const inputLoanAmount = document.querySelector('.form__input--loan-amount');
 const inputCloseUsername = document.querySelector('.form__input--user');
 const inputClosePin = document.querySelector('.form__input--pin');
-
-/////////////////////////////////////////////////
-/////////////////////////////////////////////////
-// LECTURES
-
-const currencies = new Map([
-    ['USD', 'United States dollar'],
-    ['EUR', 'Euro'],
-    ['GBP', 'Pound sterling'],
-]);
-
-const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
-
-/////////////////////////////////////////////////
-
-// SLICE
-let arr = ['a', 'b', 'c', 'd', 'e'];
-console.log(arr.slice(2, 4));
-console.log(arr.slice(-2));
-console.log(arr.slice(0, 2));
-console.log(arr.slice(0, -3));
-console.log(arr.slice());
-console.log([...arr]);
-
-// SPLICE
-// console.log(arr.splice(2));
-// arr.splice(1, 3);
-// for (let i = 0; i < arr.length; i++) {
-//     arr.splice(i, 1);
-// }
-console.log(arr);
-
-// REVERSE
-let arr2 = ['j', 'i', 'h', 'g', 'f'];
-console.log(arr2.reverse());
-console.log(arr2);
-
-// CONCAT
-const letters = arr.concat(arr2);
-console.log(letters);
-console.log([...arr, ...arr2]);
-
-// JOIN
-console.log(letters.join(' - '));
