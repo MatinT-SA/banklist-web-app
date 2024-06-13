@@ -1,13 +1,9 @@
-/*
- * Use this CSS to learn some intersting techniques,
- * in case you're wondering how I built the UI.
- * Have fun! 😁
- */
-
 * {
     margin: 0;
     padding: 0;
     box-sizing: inherit;
+
+    cursor: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"%3E%3Cpath fill="%23FFFFFF" stroke="%239C9C9C" stroke-width="2.25" stroke-linejoin="round" d="M18 14.88 8.16 3.15c-.26-.31-.76-.12-.76.28v15.31c0 .36.42.56.7.33l3.1-2.6 1.55 4.25c.08.22.33.34.55.26l1.61-.59a.43.43 0 0 0 .26-.55l-1.55-4.25h4.05c.36 0 .56-.42.33-.7Z"%3E%3C/path%3E%3C/svg%3E'), auto;
 }
 
 html {
@@ -21,6 +17,7 @@ body {
     background-color: #f3f3f3;
     height: 100vh;
     padding: 2rem;
+
 }
 
 nav {
@@ -71,7 +68,7 @@ nav {
     background: none;
     font-size: 2.2rem;
     color: inherit;
-    cursor: pointer;
+    cursor: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"%3E%3Cpath fill="%2322A200" d="M19.27 15.32 7.77 1.61A1 1 0 0 0 6 2.25v17.89a1 1 0 0 0 1.64.77l3.08-2.58 1.56 4.3a1 1 0 0 0 1.28.6l1.88-.68a1 1 0 0 0 .6-1.28l-1.56-4.3h4.02a1 1 0 0 0 .77-1.64Z"%3E%3C/path%3E%3C/svg%3E'), auto;
     transition: all 0.3s;
 }
 
@@ -203,7 +200,7 @@ nav {
     background: none;
     font-size: 1.3rem;
     font-weight: 500;
-    cursor: pointer;
+    cursor: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"%3E%3Cpath fill="%2322A200" d="M19.27 15.32 7.77 1.61A1 1 0 0 0 6 2.25v17.89a1 1 0 0 0 1.64.77l3.08-2.58 1.56 4.3a1 1 0 0 0 1.28.6l1.88-.68a1 1 0 0 0 .6-1.28l-1.56-4.3h4.02a1 1 0 0 0 .77-1.64Z"%3E%3C/path%3E%3C/svg%3E'), auto;
 }
 
 /* OPERATIONS */
@@ -278,7 +275,7 @@ h2 {
     border-radius: 0.7rem;
     font-size: 1.8rem;
     background-color: #fff;
-    cursor: pointer;
+    cursor: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"%3E%3Cpath fill="%2322A200" d="M19.27 15.32 7.77 1.61A1 1 0 0 0 6 2.25v17.89a1 1 0 0 0 1.64.77l3.08-2.58 1.56 4.3a1 1 0 0 0 1.28.6l1.88-.68a1 1 0 0 0 .6-1.28l-1.56-4.3h4.02a1 1 0 0 0 .77-1.64Z"%3E%3C/path%3E%3C/svg%3E'), auto;
     transition: all 0.3s;
 }
 
