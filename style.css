@@ -58,6 +58,8 @@ nav {
     color: inherit;
     border: 1px solid #fff;
     transition: all 0.3s;
+
+    cursor: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="24" height="48" viewBox="0 0 24 24"%3E%3Cpath fill="%23CEBBB3" stroke="%23808080" stroke-width="2" stroke-linejoin="round" d="m2 12 3.5-3.5v7L2 12Zm20 0-3.5 3.5v-7L22 12Zm-3.5 0h-13M12 2l3.5 3.5h-7L12 2Zm0 20-3.5-3.5h7L12 22Zm0-3.5v-13"%3E%3C/path%3E%3C/svg%3E'), auto;
 }
 
 .login__input:focus {
