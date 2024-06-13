@@ -4,10 +4,12 @@
     box-sizing: inherit;
 
     cursor: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"%3E%3Cpath fill="%23FFFFFF" stroke="%239C9C9C" stroke-width="2.25" stroke-linejoin="round" d="M18 14.88 8.16 3.15c-.26-.31-.76-.12-.76.28v15.31c0 .36.42.56.7.33l3.1-2.6 1.55 4.25c.08.22.33.34.55.26l1.61-.59a.43.43 0 0 0 .26-.55l-1.55-4.25h4.05c.36 0 .56-.42.33-.7Z"%3E%3C/path%3E%3C/svg%3E'), auto;
+
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 
 html {
-    font-size: 62.5%;
+    font-size: 55%;
     box-sizing: border-box;
 }
 
@@ -34,12 +36,18 @@ nav {
 }
 
 .welcome {
-    font-size: 1.9rem;
+    font-size: 2rem;
     font-weight: 500;
 }
 
 .logo {
     height: 10rem;
+    transition: .2s ease-in;
+    cursor: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"%3E%3Cpath fill="%23FFFFFF" stroke="%23808080" stroke-width="2.5" stroke-linejoin="round" d="M10 11V8.99c0-.88.59-1.64 1.44-1.86h.05A1.99 1.99 0 0 1 14 9.05V12v-2c0-.88.6-1.65 1.46-1.87h.05A1.98 1.98 0 0 1 18 10.06V13v-1.94a2 2 0 0 1 1.51-1.94h0A2 2 0 0 1 22 11.06V14c0 .6-.08 1.27-.21 1.97a7.96 7.96 0 0 1-7.55 6.48 54.98 54.98 0 0 1-4.48 0 7.96 7.96 0 0 1-7.55-6.48C2.08 15.27 2 14.59 2 14v-1.49c0-1.11.9-2.01 2.01-2.01h0a2 2 0 0 1 2.01 2.03l-.01.97v-10c0-1.1.9-2 2-2h0a2 2 0 0 1 2 2V11Z"%3E%3C/path%3E%3C/svg%3E'), auto;
+}
+
+.logo:hover {
+    transform: scale(1.1);
 }
 
 .login {
@@ -49,7 +57,7 @@ nav {
 .login__input {
     border: none;
     padding: 0.5rem 2rem;
-    font-size: 1.6rem;
+    font-size: 2rem;
     font-family: inherit;
     text-align: center;
     width: 12rem;
