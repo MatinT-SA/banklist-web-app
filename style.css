@@ -13,7 +13,7 @@
 }
 
 html {
-    font-size: 55%;
+    font-size: 60%;
     box-sizing: border-box;
 }
 
@@ -80,8 +80,7 @@ nav {
     color: inherit;
     border: 1px solid #fff;
     transition: all 0.3s;
-
-    cursor: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="24" height="48" viewBox="0 0 24 24"%3E%3Cpath fill="%23CEBBB3" stroke="%23808080" stroke-width="2" stroke-linejoin="round" d="m2 12 3.5-3.5v7L2 12Zm20 0-3.5 3.5v-7L22 12Zm-3.5 0h-13M12 2l3.5 3.5h-7L12 2Zm0 20-3.5-3.5h7L12 22Zm0-3.5v-13"%3E%3C/path%3E%3C/svg%3E'), auto;
+    cursor: auto;
 }
 
 .login__input:focus {
@@ -152,24 +151,24 @@ nav {
 }
 
 /* ❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃ */
-/* ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬╣ Movement ╠▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬ */
+/* ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬╣ Transactions ╠▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬ */
 /* ❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃ */
 
-.movements {
+.transactions {
     grid-row: 2 / span 3;
     background-color: #fff;
     border-radius: 1rem;
     overflow: scroll;
 }
 
-.movements__row {
+.transactions__row {
     padding: 2.25rem 4rem;
     display: flex;
     align-items: center;
     border-bottom: 1px solid #eee;
 }
 
-.movements__type {
+.transactions__type {
     font-size: 1.1rem;
     text-transform: uppercase;
     font-weight: 500;
@@ -179,22 +178,22 @@ nav {
     margin-right: 2rem;
 }
 
-.movements__date {
+.transactions__date {
     font-size: 1.1rem;
     text-transform: uppercase;
     font-weight: 500;
     color: #666;
 }
 
-.movements__type--deposit {
+.transactions__type--deposit {
     background-image: linear-gradient(to top left, #39b385, #9be15d);
 }
 
-.movements__type--withdrawal {
+.transactions__type--withdrawal {
     background-image: linear-gradient(to top left, #e52a5a, #ff585f);
 }
 
-.movements__value {
+.transactions__value {
     font-size: 1.7rem;
     margin-left: auto;
 }
@@ -242,24 +241,24 @@ nav {
 }
 
 /* ❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃ */
-/* ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬╣ Operations ╠▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬ */
+/* ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬╣ Actions ╠▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬ */
 /* ❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃ */
 
-.operation {
+.action {
     border-radius: 1rem;
     padding: 3rem 4rem;
     color: #333;
 }
 
-.operation--transfer {
+.action--transfer {
     background-image: linear-gradient(to top left, #ffb003, #ffcb03);
 }
 
-.operation--loan {
+.action--loan {
     background-image: linear-gradient(to top left, #39b385, #9be15d);
 }
 
-.operation--close {
+.action--close {
     background-image: linear-gradient(to top left, #e52a5a, #ff585f);
 }
 
@@ -300,6 +299,7 @@ h2 {
     padding: 0.3rem 1rem;
     border-radius: 0.7rem;
     transition: all 0.3s;
+    cursor: auto;
 }
 
 .form__input:focus {
