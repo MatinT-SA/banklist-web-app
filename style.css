@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+
 /* ❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃ */
 /* ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬╣ Resetting Styles ╠▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬ */
 /* ❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃ */
@@ -18,7 +20,6 @@ html {
 }
 
 body {
-    font-family: "Poppins", sans-serif;
     color: #444;
     background-color: #f3f3f3;
     height: 100vh;
@@ -111,8 +112,60 @@ nav {
     background: none;
     font-size: 2.2rem;
     color: inherit;
-    cursor: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"%3E%3Cpath fill="%2322A200" d="M19.27 15.32 7.77 1.61A1 1 0 0 0 6 2.25v17.89a1 1 0 0 0 1.64.77l3.08-2.58 1.56 4.3a1 1 0 0 0 1.28.6l1.88-.68a1 1 0 0 0 .6-1.28l-1.56-4.3h4.02a1 1 0 0 0 .77-1.64Z"%3E%3C/path%3E%3C/svg%3E'), auto;
     transition: all 0.3s;
+}
+
+.tooltip {
+    position: relative;
+    display: inline-block;
+}
+
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 100px;
+    background-color: #555;
+    color: #fff;
+    text-align: center;
+    border-radius: 5px;
+    padding: 5px 0;
+    position: absolute;
+    z-index: 3;
+    bottom: 50px;
+    left: 30px;
+    margin-left: -60px;
+    opacity: 0;
+    transition: opacity 0.2s;
+}
+
+.tooltip .tooltiptext::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    /* Adjust arrow position */
+    border-width: 5px;
+    border-style: solid;
+    border-color: #555 transparent transparent transparent;
+}
+
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+}
+
+.tooltiptext {
+    font-size: 16px;
+}
+
+.login__btn-img {
+    width: 40px;
+    height: 40px;
+    transition: .2s ease-in;
+}
+
+.login__btn-img:hover {
+    transform: scale(1.15);
 }
 
 .login__btn:hover,
@@ -266,14 +319,29 @@ nav {
 
 .action--transfer {
     background-image: linear-gradient(to top left, #ffb003, #ffcb03);
+    transition: background-image 0.3s ease;
+}
+
+.action--transfer:hover {
+    background-image: linear-gradient(to top left, #e09600, #ffb903);
 }
 
 .action--loan {
-    background-image: linear-gradient(to top left, #39b385, #9be15d);
+    background-image: linear-gradient(to top left, #e76f51, #f4a261);
+    transition: background-image 0.3s ease;
+}
+
+.action--loan:hover {
+    background-image: linear-gradient(to top left, #d45032, #e78d5e);
 }
 
 .action--close {
     background-image: linear-gradient(to top left, #e52a5a, #ff585f);
+    transition: background-image 0.3s ease;
+}
+
+.action--close:hover {
+    background-image: linear-gradient(to top left, #c51e40, #e3584a);
 }
 
 h2 {
@@ -304,22 +372,29 @@ h2 {
 
 .form__input {
     width: 100%;
-    border: none;
-    background-color: rgba(255, 255, 255, 0.4);
-    font-family: inherit;
-    font-size: 1.5rem;
+    border: 2px solid #6d6d6d;
+    background-color: rgba(255, 255, 255, 0.1);
+    font-family: 'Open Sans', Arial, sans-serif;
+    font-size: 1.6rem;
     text-align: center;
-    color: #333;
-    padding: 0.3rem 1rem;
-    border-radius: 0.7rem;
-    transition: all 0.3s;
-    cursor: auto;
+    color: #444;
+    padding: 0.8rem 1.5rem;
+    border-radius: 1.2rem;
+    transition: all 0.4s ease;
+    outline: none;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.form__input::placeholder {
+    color: #999;
 }
 
 .form__input:focus {
-    outline: none;
-    background-color: rgba(255, 255, 255, 0.6);
+    background-color: rgba(255, 255, 255, 0.2);
+    border-color: #4CAF50;
+    box-shadow: 0 0 10px rgba(0, 128, 0, 0.3);
 }
+
 
 .form__label {
     font-size: 1.3rem;
