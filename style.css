@@ -41,12 +41,10 @@ nav {
     padding: 0 2rem;
 }
 
-.nav__right {
+.navigation {
     display: flex;
-    flex-direction: row;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
-    gap: 3rem;
 }
 
 .intro-sentence {
@@ -66,30 +64,46 @@ nav {
 
 .login {
     display: flex;
+    opacity: 0;
+    transform: translateY(-50px);
+    transition: opacity 1s ease-in-out, transform 1s ease-in-out;
+}
+
+.login.active {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 .login__input {
-    border: none;
-    padding: 0.5rem 2rem;
+    position: relative;
+    padding: 1rem 2rem;
     font-size: 2rem;
-    font-family: inherit;
     text-align: center;
-    width: 12rem;
-    border-radius: 10rem;
-    margin-right: 1rem;
-    color: inherit;
-    border: 1px solid #fff;
-    transition: all 0.3s;
-    cursor: auto;
+    width: 15rem;
+    border: 5px ridge #6d6d6d;
+    margin-right: 1.25rem;
+    color: #6d6d6d;
+    background-color: black;
+    transition: background-color 0.3s ease-in-out;
+    cursor: text;
+    z-index: 1;
 }
 
+.login__input:nth-child(1) {
+    border-radius: 10px 30px 15px 5px;
+}
+
+.login__input:nth-child(2) {
+    border-radius: 30px 10px 5px 15px;
+}
+
+.login__input:hover,
 .login__input:focus {
-    outline: none;
-    border: 1px solid #ccc;
+    background-color: rgb(223, 223, 223);
 }
 
 .login__input::placeholder {
-    color: #bbb;
+    color: #000;
 }
 
 .login__btn {

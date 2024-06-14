@@ -11,16 +11,20 @@
 </head>
 
 <body>
-    <nav>
-        <a href="/"><img src="image/logo.png" alt="Logo" class="logo" /></a>
-        <div class="nav__right">
-            <p class="intro-sentence">Access your account by logging in</p>
+    <nav class="navigation">
+        <div class="navigation__logo">
+            <a href="/"><img src="image/logo.png" alt="Logo" class="logo" /></a>
+        </div>
+        <div class="navigation__login">
             <form class="login">
                 <input type="text" placeholder="user" class="login__input login__input--user" />
                 <!-- In practice, use type="password" -->
                 <input type="text" placeholder="PIN" maxlength="4" class="login__input login__input--pin" />
                 <button class="login__btn">&rarr;</button>
             </form>
+        </div>
+        <div class="navigation__intro-sentence">
+            <p class="intro-sentence">Access your account by logging in</p>
         </div>
     </nav>
 
@@ -96,7 +100,16 @@
         </p>
     </main>
 
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            setTimeout(function () {
+                document.querySelector('.login').classList.add('active');
+            }, 1000);
+        });
+    </script>
+
     <script src="script.js"></script>
+
 </body>
 
 </html>
