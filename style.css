@@ -236,13 +236,14 @@ nav {
 }
 
 .transactions__type {
-    font-size: 1.1rem;
+    font-size: 1.4rem;
     text-transform: uppercase;
-    font-weight: 500;
-    color: #fff;
-    padding: 0.1rem 1rem;
-    border-radius: 10rem;
-    margin-right: 2rem;
+    font-style: italic;
+    font-weight: bold;
+    color: white;
+    padding: 0.3rem 1.25rem;
+    border-radius: 5px 15px;
+    margin-right: 1rem;
 }
 
 .transactions__date {

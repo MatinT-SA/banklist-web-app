@@ -1,41 +1,34 @@
-'use strict';
-
-/////////////////////////////////////////////////
-/////////////////////////////////////////////////
-// BANKIST APP
-
-// Data
+// Mock data
 const account1 = {
     owner: 'Matin Taherzadeh',
-    movements: [500, -200, 1500, -700, 800, 250, -100, 1300],
-    interestRate: 1.2, // %
-    pin: 1111,
+    transactions: [500, -200, 1500, -700, 800, 250, -100, 1300],
+    interestRate: 1.2,
+    pin: 1234,
 };
 
 const account2 = {
     owner: 'Roger Federer',
-    movements: [7000, -3000, 4500, -1500, 2000, -1200, 1000, -500],
+    transactions: [7000, -3000, 4500, -1500, 2000, -1200, 1000, -500],
     interestRate: 1.5,
-    pin: 2222,
+    pin: 1235,
 };
 
 const account3 = {
     owner: 'Rafael Nadal',
-    movements: [100, -500, 800, -400, 250, -50, 700, -300],
+    transactions: [100, -500, 800, -400, 250, -50, 700, -300],
     interestRate: 0.7,
-    pin: 3333,
+    pin: 1236,
 };
 
 const account4 = {
     owner: 'Novak Djokovic',
-    movements: [300, 900, -200, 400, 150, -100, 800, 50],
+    transactions: [300, 900, -200, 400, 150, -100, 800, 50],
     interestRate: 1,
-    pin: 4444,
+    pin: 1237,
 };
 
 const accounts = [account1, account2, account3, account4];
 
-// Elements
 const labelIntroSentence = document.querySelector('.intro-sentence');
 const labelDate = document.querySelector('.date');
 const labelBalance = document.querySelector('.balance__value');
@@ -60,3 +53,22 @@ const inputTransferAmount = document.querySelector('.form__input--amount');
 const inputLoanAmount = document.querySelector('.form__input--loan-amount');
 const inputCloseUsername = document.querySelector('.form__input--user');
 const inputClosePin = document.querySelector('.form__input--pin');
+
+// displaying accounts elements
+const displayTransactions = function (transactions) {
+    containerTransactions.innerHTML = '';
+
+    transactions.forEach(function (tran, i) {
+        const type = tran > 0 ? 'deposit' : 'withdrawal';
+        const html = `
+            <div class="transactions__row">
+                <div class="transactions__type transactions__type--${type}">${i + 1} ${type}</div>
+                <div class="transactions__value">${tran}</div>
+            </div>
+        `;
+        containerTransactions.insertAdjacentHTML('afterbegin', html);
+    })
+}
+
+displayTransactions(account1.transactions);
+
