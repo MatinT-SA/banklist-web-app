@@ -72,3 +72,20 @@ const displayTransactions = function (transactions) {
 
 displayTransactions(account1.transactions);
 
+// displaying balance
+const displayBalance = function (accounts) {
+    const balanceAcc = accounts.reduce((acc, cur) => acc + cur);
+    labelBalance.textContent = balanceAcc;
+}
+
+displayBalance(account1.transactions);
+
+// username
+const user = "Mohammad Matin Taherzadeh Shah Abadi";
+const username = user
+    .toLowerCase()
+    .split(" ")
+    .map(word => word[0]
+    ).join("");
+
+console.log(username);
