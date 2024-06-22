@@ -78,19 +78,19 @@ const displayBalance = function (accounts) {
 }
 
 // displaying Overview
-const calcDisplayOverview = function (transactions) {
-    const income = transactions
+const calcDisplayOverview = function (accs) {
+    const income = accs.transactions
         .filter(tran => tran > 0)
         .reduce((acc, tran) => acc + tran, 0);
 
-    const outcome = Math.abs(transactions
+    const outcome = Math.abs(accs.transactions
         .filter(tran => tran < 0)
         .reduce((acc, tran) => acc + tran, 0));
 
     // in our Banklist, only interests more than 4% will be considered as a user's total interest amount
-    const interest = transactions
+    const interest = accs.transactions
         .filter(tran => tran > 0)
-        .map(dep => (dep * 1.2) / 100)
+        .map(dep => (dep * accs.interestRate) / 100)
         .filter(int => int >= 4)
         .reduce((acc, int) => acc + int, 0);
 
@@ -144,6 +144,6 @@ btnLogin.addEventListener('click', function (e) {
         displayBalance(currentAccount.transactions);
 
         // display overview
-        calcDisplayOverview(currentAccount.transactions);
+        calcDisplayOverview(currentAccount);
     }
 })
