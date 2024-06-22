@@ -32,9 +32,9 @@ const accounts = [account1, account2, account3, account4];
 const labelIntroSentence = document.querySelector('.intro-sentence');
 const labelDate = document.querySelector('.date');
 const labelBalance = document.querySelector('.balance__value');
-const labelSumIn = document.querySelector('.summary__value--in');
-const labelSumOut = document.querySelector('.summary__value--out');
-const labelSumInterest = document.querySelector('.summary__value--interest');
+const labelOverviewIn = document.querySelector('.overview__value--in');
+const labelOverviewOut = document.querySelector('.overview__value--out');
+const labelOverviewInterest = document.querySelector('.overview__value--interest');
 const labelTimer = document.querySelector('.timer');
 
 const containerApp = document.querySelector('.app');
@@ -75,10 +75,20 @@ displayTransactions(account1.transactions);
 // displaying balance
 const displayBalance = function (accounts) {
     const balanceAcc = accounts.reduce((acc, cur) => acc + cur);
-    labelBalance.textContent = balanceAcc;
+    labelBalance.textContent = `${balanceAcc} $`;
 }
 
 displayBalance(account1.transactions);
+
+// displaying Overview
+const calcDisplayOverview = function (transactions) {
+    const income = transactions
+        .filter(tran => tran > 0)
+        .reduce((acc, tran) => acc + tran, 0);
+    labelOverviewIn.textContent = `${income} $`;
+}
+
+calcDisplayOverview(account1.transactions);
 
 // username
 const user = "Mohammad Matin Taherzadeh Shah Abadi";
@@ -89,3 +99,4 @@ const username = user
     ).join("");
 
 console.log(username);
+
