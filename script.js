@@ -85,7 +85,13 @@ const calcDisplayOverview = function (transactions) {
     const income = transactions
         .filter(tran => tran > 0)
         .reduce((acc, tran) => acc + tran, 0);
+
+    const outcome = transactions
+        .filter(tran => tran < 0)
+        .reduce((acc, tran) => acc + tran, 0);
+
     labelOverviewIn.textContent = `${income} $`;
+    labelOverviewOut.textContent = `${outcome} $`;
 }
 
 calcDisplayOverview(account1.transactions);
