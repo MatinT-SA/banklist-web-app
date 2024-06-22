@@ -1,30 +1,30 @@
 // Mock data
 const account1 = {
     client: 'Matin Taherzadeh',
-    transactions: [500, -200, 1500, -700, 800, 250, -100, 1300],
-    interestRate: 1.2,
     pin: 1234,
+    interestRate: 1.2,
+    transactions: [500, -200, 1500, -700, 800, 250, -100, 1300],
 };
 
 const account2 = {
     client: 'Roger Federer',
-    transactions: [7000, -3000, 4500, -1500, 2000, -1200, 1000, -500],
-    interestRate: 1.5,
     pin: 1235,
+    interestRate: 1.5,
+    transactions: [7000, -3000, 4500, -1500, 2000, -1200, 1000, -500],
 };
 
 const account3 = {
     client: 'Rafael Nadal',
-    transactions: [100, -500, 800, -400, 250, -50, 700, -300],
-    interestRate: 0.7,
     pin: 1236,
+    interestRate: 0.7,
+    transactions: [100, -500, 800, -400, 250, -50, 700, -300],
 };
 
 const account4 = {
     client: 'Novak Djokovic',
-    transactions: [300, 900, -200, 400, 150, -100, 800, 50],
-    interestRate: 1,
     pin: 1237,
+    interestRate: 1,
+    transactions: [300, 900, -200, 400, 150, -100, 800, 50],
 };
 
 const accounts = [account1, account2, account3, account4];
