@@ -86,12 +86,24 @@ const calcDisplayOverview = function (transactions) {
         .filter(tran => tran > 0)
         .reduce((acc, tran) => acc + tran, 0);
 
-    const outcome = transactions
+    const outcome = Math.abs(transactions
         .filter(tran => tran < 0)
-        .reduce((acc, tran) => acc + tran, 0);
+        .reduce((acc, tran) => acc + tran, 0));
+
+    // in our Banklist, only interests more than 4% will be considered as a user's total interest amount
+    const interest = transactions
+        .filter(tran => tran > 0)
+        .map(dep => (dep * 1.2) / 100)
+        .filter((int, i, arr) => {
+            console.log(arr);
+            return int >= 4
+        }
+        )
+        .reduce((acc, int) => acc + int, 0);
 
     labelOverviewIn.textContent = `${income} $`;
     labelOverviewOut.textContent = `${outcome} $`;
+    labelOverviewInterest.textContent = `${interest} $`;
 }
 
 calcDisplayOverview(account1.transactions);
