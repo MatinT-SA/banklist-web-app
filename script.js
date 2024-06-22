@@ -1,4 +1,4 @@
-// Mock data
+/***** Mock Data ********/
 const account1 = {
     client: 'Matin Taherzadeh',
     pin: 1234,
@@ -49,13 +49,25 @@ const btnSort = document.querySelector('.btn--sort');
 const inputLogins = document.querySelectorAll('.login__input');
 const inputLoginUsername = document.querySelector('.login__input--user');
 const inputLoginPin = document.querySelector('.login__input--pin');
+const errorMessage = document.querySelector('.error-message');
 const inputTransferTo = document.querySelector('.form__input--to');
 const inputTransferAmount = document.querySelector('.form__input--amount');
 const inputLoanAmount = document.querySelector('.form__input--loan-amount');
 const inputCloseUsername = document.querySelector('.form__input--user');
 const inputClosePin = document.querySelector('.form__input--pin');
 
-// displaying accounts elements
+/***** Display Error message ********/
+const showErrorMessage = function (message) {
+    errorMessage.textContent = message;
+    errorMessage.classList.add('visible');
+}
+
+/***** Hide Error message ********/
+const hideErrorMessage = function () {
+    errorMessage.classList.remove('visible');
+}
+
+/***** Displaying Transactions ********/
 const displayTransactions = function (transactions) {
     containerTransactions.innerHTML = '';
 
@@ -71,13 +83,13 @@ const displayTransactions = function (transactions) {
     })
 }
 
-// displaying balance
+/***** Displaying Balance ********/
 const displayBalance = function (accounts) {
     const balanceAcc = accounts.reduce((acc, cur) => acc + cur);
     labelBalance.textContent = `${balanceAcc} $`;
 }
 
-// displaying Overview
+/***** Displaying Overview ********/
 const calcDisplayOverview = function (accs) {
     const income = accs.transactions
         .filter(tran => tran > 0)
@@ -99,7 +111,7 @@ const calcDisplayOverview = function (accs) {
     labelOverviewInterest.textContent = `${interest} $`;
 }
 
-// username
+/***** Username ********/
 const createUsernames = function (accs) {
     accs.forEach(function (acc) {
         acc.username = acc.client
@@ -112,38 +124,40 @@ const createUsernames = function (accs) {
 
 createUsernames(accounts);
 
-// Login
+/***** Login ********/
 let currentAccount;
 
 btnLogin.addEventListener('click', function (e) {
     e.preventDefault();
 
-    // checking username
-    currentAccount = accounts.find(acc => acc.username === inputLoginUsername.value);
-    console.log(currentAccount);
+    hideErrorMessage(); // Hide error message initially
 
-    // checking PIN
-    if (currentAccount?.pin === Number(inputLoginPin.value)) {
+    // Check username
+    currentAccount = accounts.find(acc => acc.username === inputLoginUsername.value);
+
+    if (!currentAccount) {
+        // Show error message if username doesn't exist
+        showErrorMessage('Username doesn\'t exist');
+        return; // Exit function early
+    }
+
+    // Continue with PIN validation if username exists
+    if (currentAccount.pin === Number(inputLoginPin.value)) {
         const firstName = currentAccount.client.split(' ')[0];
         labelIntroSentence.textContent = (currentAccount.username === 'rn') ? `Hey, Rafa!` : `Hello Again, ${firstName}`;
 
-        // displaying app class
         containerApp.style.opacity = 1;
 
-        // clearing the input fields and bluring the cursor
         inputLogins.forEach(input => {
             input.value = '';
             input.blur();
         });
-        // 
 
-        // display transactions 
         displayTransactions(currentAccount.transactions);
-
-        // display balance
         displayBalance(currentAccount.transactions);
-
-        // display overview
         calcDisplayOverview(currentAccount);
+    } else {
+        // Show error message if PIN is incorrect
+        showErrorMessage('The PIN is incorrect');
     }
-})
+});
