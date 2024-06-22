@@ -105,11 +105,25 @@ const calcDisplayOverview = function (transactions) {
 calcDisplayOverview(account1.transactions);
 
 // username
-const user = "Mohammad Matin Taherzadeh Shah Abadi";
-const username = user
-    .toLowerCase()
-    .split(" ")
-    .map(word => word[0]
-    ).join("");
+const createUsernames = function (accs) {
+    accs.forEach(function (acc) {
+        acc.username = acc.client
+            .toLowerCase()
+            .split(" ")
+            .map(word => word[0]
+            ).join("");
+    });
+};
 
-console.log(username);
+createUsernames(accounts);
+
+// Login
+let currentAccount;
+
+btnLogin.addEventListener('click', function (e) {
+    e.preventDefault();
+
+    // checking username
+    currentAccount = accounts.find(acc => acc.username === inputLoginUsername.value);
+    console.log(currentAccount);
+})
