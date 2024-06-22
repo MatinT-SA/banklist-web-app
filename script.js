@@ -126,4 +126,17 @@ btnLogin.addEventListener('click', function (e) {
     // checking username
     currentAccount = accounts.find(acc => acc.username === inputLoginUsername.value);
     console.log(currentAccount);
+
+    // checking PIN
+    if (currentAccount?.pin === Number(inputLoginPin.value)) {
+        // display UI and welcome message
+        const firstName = currentAccount.client.split(' ')[0];
+        labelIntroSentence.textContent = (currentAccount.username === 'rn') ? `Hey, Rafa!` : `Hello Again, ${firstName}`;
+
+        // display transactions
+
+        // display balance
+
+        // display summary
+    }
 })
