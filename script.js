@@ -46,6 +46,7 @@ const btnLoan = document.querySelector('.form__btn--loan');
 const btnClose = document.querySelector('.form__btn--close');
 const btnSort = document.querySelector('.btn--sort');
 
+const inputLogins = document.querySelectorAll('.login__input');
 const inputLoginUsername = document.querySelector('.login__input--user');
 const inputLoginPin = document.querySelector('.login__input--pin');
 const inputTransferTo = document.querySelector('.form__input--to');
@@ -126,9 +127,17 @@ btnLogin.addEventListener('click', function (e) {
         const firstName = currentAccount.client.split(' ')[0];
         labelIntroSentence.textContent = (currentAccount.username === 'rn') ? `Hey, Rafa!` : `Hello Again, ${firstName}`;
 
+        // displaying app class
         containerApp.style.opacity = 1;
 
-        // display transactions
+        // clearing the input fields and bluring the cursor
+        inputLogins.forEach(input => {
+            input.value = '';
+            input.blur();
+        });
+        // 
+
+        // display transactions 
         displayTransactions(currentAccount.transactions);
 
         // display balance
