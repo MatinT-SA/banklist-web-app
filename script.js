@@ -70,15 +70,11 @@ const displayTransactions = function (transactions) {
     })
 }
 
-displayTransactions(account1.transactions);
-
 // displaying balance
 const displayBalance = function (accounts) {
     const balanceAcc = accounts.reduce((acc, cur) => acc + cur);
     labelBalance.textContent = `${balanceAcc} $`;
 }
-
-displayBalance(account1.transactions);
 
 // displaying Overview
 const calcDisplayOverview = function (transactions) {
@@ -101,8 +97,6 @@ const calcDisplayOverview = function (transactions) {
     labelOverviewOut.textContent = `${outcome} $`;
     labelOverviewInterest.textContent = `${interest} $`;
 }
-
-calcDisplayOverview(account1.transactions);
 
 // username
 const createUsernames = function (accs) {
@@ -129,14 +123,18 @@ btnLogin.addEventListener('click', function (e) {
 
     // checking PIN
     if (currentAccount?.pin === Number(inputLoginPin.value)) {
-        // display UI and welcome message
         const firstName = currentAccount.client.split(' ')[0];
         labelIntroSentence.textContent = (currentAccount.username === 'rn') ? `Hey, Rafa!` : `Hello Again, ${firstName}`;
 
+        containerApp.style.opacity = 1;
+
         // display transactions
+        displayTransactions(currentAccount.transactions);
 
         // display balance
+        displayBalance(currentAccount.transactions);
 
-        // display summary
+        // display overview
+        calcDisplayOverview(currentAccount.transactions);
     }
 })
