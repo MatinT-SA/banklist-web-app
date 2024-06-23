@@ -233,11 +233,10 @@ nav {
     color: #D8000C;
     background-color: #FFBABA;
     position: absolute;
-    left: 50%;
-    transform: translate(-50%, -10px);
+    transform: translate(-20%, 50%);
     transition: transform 0.5s ease, opacity 0.5s ease;
     opacity: 0;
-    top: 70%;
+    top: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -248,7 +247,7 @@ nav {
 .error-message.visible {
     opacity: 1;
     text-align: center;
-    transform: translate(-50%, 20px);
+    transform: translate(0, 50%);
 }
 
 .error-icon {
