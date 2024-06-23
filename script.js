@@ -139,7 +139,15 @@ btnLogin.addEventListener('click', function (e) {
     // Check username
     currentAccount = accounts.find(acc => acc.username === inputLoginUsername.value);
 
-    if (!currentAccount) {
+    // if (!currentAccount) {
+    //     showErrorMessage('Username doesn\'t exist');
+    //     return;
+    // }
+
+    if (inputLoginUsername.value.trim() === '') {
+        showErrorMessage('Username is empty');
+        return;
+    } else if (!currentAccount) {
         showErrorMessage('Username doesn\'t exist');
         return;
     }

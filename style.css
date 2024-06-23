@@ -226,17 +226,18 @@ nav {
 /* ❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃ */
 
 .error-message {
-    font-size: 2rem;
+    font-size: 1.5rem;
+    font-weight: bold;
     margin: 10px 0;
     padding: 10px;
     border-radius: 4px 4px 4px 30px;
     color: #D8000C;
     background-color: #FFBABA;
     position: absolute;
-    transform: translate(-20%, 50%);
+    transform: translate(-20%, 60%);
     transition: transform 0.5s ease, opacity 0.5s ease;
     opacity: 0;
-    top: 50%;
+    top: 60%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -247,13 +248,13 @@ nav {
 .error-message.visible {
     opacity: 1;
     text-align: center;
-    transform: translate(0, 50%);
+    transform: translate(0, 60%);
 }
 
 .error-icon {
     position: absolute;
     left: 1.5rem;
-    font-size: 3rem;
+    font-size: 2.5rem;
 }
 
 /* ❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃ */
