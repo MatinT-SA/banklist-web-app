@@ -134,18 +134,16 @@ let currentAccount;
 btnLogin.addEventListener('click', function (e) {
     e.preventDefault();
 
-    hideErrorMessage(); // Hide error message initially
+    hideErrorMessage();
 
     // Check username
     currentAccount = accounts.find(acc => acc.username === inputLoginUsername.value);
 
     if (!currentAccount) {
-        // Show error message if username doesn't exist
         showErrorMessage('Username doesn\'t exist');
-        return; // Exit function early
+        return;
     }
 
-    // Continue with PIN validation if username exists
     if (currentAccount.pin === Number(inputLoginPin.value)) {
         const firstName = currentAccount.client.split(' ')[0];
         labelIntroSentence.textContent = (currentAccount.username === 'rn') ? `Hey, Rafa!` : `Hello Again, ${firstName}`;
@@ -161,7 +159,6 @@ btnLogin.addEventListener('click', function (e) {
         displayBalance(currentAccount.transactions);
         calcDisplayOverview(currentAccount);
     } else {
-        // Show error message if PIN is incorrect
         showErrorMessage('The PIN is incorrect');
     }
 });
