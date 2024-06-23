@@ -56,6 +56,13 @@ const inputLoanAmount = document.querySelector('.form__input--loan-amount');
 const inputCloseUsername = document.querySelector('.form__input--user');
 const inputClosePin = document.querySelector('.form__input--pin');
 
+/***** Display Data ********/
+const displayData = function (acc) {
+    displayTransactions(acc.transactions);
+    displayBalance(acc);
+    calcDisplayOverview(acc);
+}
+
 /***** Display Error message ********/
 const showErrorMessage = function (message) {
     errorMessage.innerHTML = `<i class="fa-solid fa-times-circle error-icon"></i> ${message}`;
@@ -88,9 +95,9 @@ const displayTransactions = function (transactions) {
 }
 
 /***** Displaying Balance ********/
-const displayBalance = function (accounts) {
-    const balanceAcc = accounts.reduce((acc, cur) => acc + cur);
-    labelBalance.textContent = `${balanceAcc} $`;
+const displayBalance = function (accs) {
+    accs.balanceAcc = accs.transactions.reduce((acc, cur) => acc + cur);
+    labelBalance.textContent = `${accs.balanceAcc} $`;
 }
 
 /***** Displaying Overview ********/
@@ -139,11 +146,6 @@ btnLogin.addEventListener('click', function (e) {
     // Check username
     currentAccount = accounts.find(acc => acc.username === inputLoginUsername.value);
 
-    // if (!currentAccount) {
-    //     showErrorMessage('Username doesn\'t exist');
-    //     return;
-    // }
-
     if (inputLoginUsername.value.trim() === '') {
         showErrorMessage('Username is empty');
         return;
@@ -163,10 +165,34 @@ btnLogin.addEventListener('click', function (e) {
             input.blur();
         });
 
-        displayTransactions(currentAccount.transactions);
-        displayBalance(currentAccount.transactions);
-        calcDisplayOverview(currentAccount);
+        displayData(currentAccount);
     } else {
         showErrorMessage('The PIN is incorrect');
     }
 });
+
+/***** Transfer ********/
+
+btnTransfer.addEventListener('click', function (e) {
+    e.preventDefault();
+
+    const amount = Number(inputTransferAmount.value);
+    const receiveAccount = accounts.find(acc => acc.username === inputTransferTo.value);
+
+    inputTransferAmount.value = inputTransferTo.value = '';
+
+    if (
+        amount > 0 &&
+        currentAccount.balanceAcc >= amount &&
+        receiveAccount &&
+        receiveAccount?.username !== currentAccount.username
+    ) {
+        currentAccount.transactions.push(-amount);
+        receiveAccount.transactions.push(amount);
+
+        displayData(currentAccount);
+    }
+
+
+})
+
