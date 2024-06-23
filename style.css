@@ -48,6 +48,10 @@ nav {
     align-items: center;
 }
 
+.navigation__login {
+    position: relative;
+}
+
 .intro-sentence {
     font-size: 2rem;
     font-weight: 500;
@@ -223,21 +227,35 @@ nav {
 
 .error-message {
     font-size: 2rem;
-    display: none;
-
     margin: 10px 0;
     padding: 10px;
-    border-radius: 3px 3px 3px 3px;
+    border-radius: 4px 4px 4px 30px;
     color: #D8000C;
     background-color: #FFBABA;
-}
-
-.error-message.visible {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, -10px);
+    transition: transform 0.5s ease, opacity 0.5s ease;
+    opacity: 0;
+    top: 70%;
     display: flex;
     justify-content: center;
     align-items: center;
+    max-width: 100%;
+    width: 300px;
 }
 
+.error-message.visible {
+    opacity: 1;
+    text-align: center;
+    transform: translate(-50%, 20px);
+}
+
+.error-icon {
+    position: absolute;
+    left: 1.5rem;
+    font-size: 3rem;
+}
 
 /* ❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃ */
 /* ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬╣ Transactions ╠▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬ */

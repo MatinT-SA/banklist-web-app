@@ -58,14 +58,18 @@ const inputClosePin = document.querySelector('.form__input--pin');
 
 /***** Display Error message ********/
 const showErrorMessage = function (message) {
-    errorMessage.textContent = message;
+    errorMessage.innerHTML = `<i class="fa-solid fa-times-circle error-icon"></i> ${message}`;
     errorMessage.classList.add('visible');
-}
+
+    setTimeout(() => {
+        errorMessage.classList.remove('visible');
+    }, 3000);
+};
 
 /***** Hide Error message ********/
 const hideErrorMessage = function () {
     errorMessage.classList.remove('visible');
-}
+};
 
 /***** Displaying Transactions ********/
 const displayTransactions = function (transactions) {
