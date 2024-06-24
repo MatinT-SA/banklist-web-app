@@ -185,7 +185,7 @@ btnTransfer.addEventListener('click', function (e) {
     if (amount < 0) {
         showErrorMessage('Negative amounts are not allowed');
     } else if (currentAccount.balanceAcc < amount) {
-        showErrorMessage('Transferring more than your balance is not allowed');
+        showErrorMessage('Amount is more than your balance');
     } else if (!receiveAccount) {
         showErrorMessage('Recipient doesn\'t exist');
     } else if (receiveAccount?.username === currentAccount.username) {
@@ -198,12 +198,10 @@ btnTransfer.addEventListener('click', function (e) {
     }
 })
 
-/***** Closing account ********/
+/***** Terminating account ********/
 
 btnClose.addEventListener('click', function (e) {
     e.preventDefault();
-
-    // removing the account based on the currentAccount's username AND pin
 
     if (inputTerminateUsername.value !== currentAccount.username) {
         showErrorMessage('Invalid username');
