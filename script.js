@@ -181,18 +181,19 @@ btnTransfer.addEventListener('click', function (e) {
 
     inputTransferAmount.value = inputTransferTo.value = '';
 
-    if (
-        amount > 0 &&
-        currentAccount.balanceAcc >= amount &&
-        receiveAccount &&
-        receiveAccount?.username !== currentAccount.username
-    ) {
+    if (amount < 0) {
+        showErrorMessage('Negative amounts are not allowed');
+    } else if (currentAccount.balanceAcc < amount) {
+        showErrorMessage('Transferring more than your balance is not allowed');
+    } else if (!receiveAccount) {
+        showErrorMessage('Recipient doesn\'t exist');
+    } else if (receiveAccount?.username === currentAccount.username) {
+        showErrorMessage('You can\'t transfer to yourself');
+    } else {
         currentAccount.transactions.push(-amount);
         receiveAccount.transactions.push(amount);
 
         displayData(currentAccount);
     }
-
-
 })
 
