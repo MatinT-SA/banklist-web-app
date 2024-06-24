@@ -43,7 +43,7 @@ const containerTransactions = document.querySelector('.transactions');
 const btnLogin = document.querySelector('.login__btn');
 const btnTransfer = document.querySelector('.form__btn--transfer');
 const btnLoan = document.querySelector('.form__btn--loan');
-const btnClose = document.querySelector('.form__btn--close');
+const btnClose = document.querySelector('.form__btn--terminate');
 const btnSort = document.querySelector('.btn--sort');
 
 const inputLogins = document.querySelectorAll('.login__input');
@@ -53,8 +53,8 @@ const errorMessage = document.querySelector('.error-message');
 const inputTransferTo = document.querySelector('.form__input--to');
 const inputTransferAmount = document.querySelector('.form__input--amount');
 const inputLoanAmount = document.querySelector('.form__input--loan-amount');
-const inputCloseUsername = document.querySelector('.form__input--user');
-const inputClosePin = document.querySelector('.form__input--pin');
+const inputTerminateUsername = document.querySelector('.form__input--user');
+const inputTerminatePin = document.querySelector('.form__input--pin');
 
 /***** Display Data ********/
 const displayData = function (acc) {
@@ -136,6 +136,7 @@ const createUsernames = function (accs) {
 createUsernames(accounts);
 
 /***** Login ********/
+
 let currentAccount;
 
 btnLogin.addEventListener('click', function (e) {
@@ -197,3 +198,26 @@ btnTransfer.addEventListener('click', function (e) {
     }
 })
 
+/***** Closing account ********/
+
+btnClose.addEventListener('click', function (e) {
+    e.preventDefault();
+
+    // removing the account based on the currentAccount's username AND pin
+
+    if (inputTerminateUsername.value !== currentAccount.username) {
+        showErrorMessage('Invalid username');
+    } else if (Number(inputTerminatePin.value) !== currentAccount.pin) {
+        showErrorMessage('Invalid PIN');
+    } else {
+        const index = accounts.findIndex(acc => acc.username === currentAccount.username);
+
+        accounts.splice(index, 1);
+    }
+
+    inputTerminateUsername.value = inputTerminatePin.value = '';
+
+    containerApp.style.opacity = 0;
+
+    labelIntroSentence.textContent = 'Access your account by logging in';
+})

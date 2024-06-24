@@ -376,12 +376,12 @@ nav {
     background-image: linear-gradient(to top left, #d45032, #e78d5e);
 }
 
-.action--close {
+.action--terminate {
     background-image: linear-gradient(to top left, #e52a5a, #ff585f);
     transition: background-image 0.3s ease;
 }
 
-.action--close:hover {
+.action--terminate:hover {
     background-image: linear-gradient(to top left, #c51e40, #e3584a);
 }
 
