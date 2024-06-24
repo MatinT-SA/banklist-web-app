@@ -219,3 +219,24 @@ btnClose.addEventListener('click', function (e) {
 
     labelIntroSentence.textContent = 'Access your account by logging in';
 })
+
+/***** Loan ********/
+
+btnLoan.addEventListener('click', function (e) {
+    e.preventDefault();
+
+    const amount = Number(inputLoanAmount.value);
+
+
+    if (amount < 0) {
+        showErrorMessage('Negative amount is not allowed');
+    } else if (!currentAccount.transactions.some(tran => tran >= amount * 0.05)) {
+        showErrorMessage('Amount is more than 5% of deposit');
+    } else {
+        currentAccount.transactions.push(amount);
+
+        displayData(currentAccount);
+    }
+
+    inputLoanAmount.value = '';
+})
