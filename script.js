@@ -89,7 +89,7 @@ const displayTransactions = function (transactions, sort = false) {
         const html = `
             <div class="transactions__row">
                 <div class="transactions__type transactions__type--${type}">${i + 1} ${type}</div>
-                <div class="transactions__value">${tran}</div>
+                <div class="transactions__value">${tran}$</div>
             </div>
         `;
         containerTransactions.insertAdjacentHTML('afterbegin', html);
