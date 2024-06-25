@@ -23,7 +23,7 @@ body {
     color: #444;
     background-color: #f3f3f3;
     height: 100vh;
-    padding: 2rem;
+    padding: auto 1rem;
 
     background-color: #EFF2FF;
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25' viewBox='0 0 2 1'%3E%3Cdefs%3E%3ClinearGradient id='a' gradientUnits='userSpaceOnUse' x1='0' x2='0' y1='0' y2='1' gradientTransform='rotate(0,0.5,0.5)'%3E%3Cstop offset='0' stop-color='%23EFF2FF'/%3E%3Cstop offset='1' stop-color='%23BDE4E6'/%3E%3C/linearGradient%3E%3ClinearGradient id='b' gradientUnits='userSpaceOnUse' x1='0' y1='0' x2='0' y2='1' gradientTransform='rotate(198,0.5,0.5)'%3E%3Cstop offset='0' stop-color='%237DAFFB' stop-opacity='0'/%3E%3Cstop offset='1' stop-color='%237DAFFB' stop-opacity='1'/%3E%3C/linearGradient%3E%3ClinearGradient id='c' gradientUnits='userSpaceOnUse' x1='0' y1='0' x2='2' y2='2' gradientTransform='rotate(0,0.5,0.5)'%3E%3Cstop offset='0' stop-color='%237DAFFB' stop-opacity='0'/%3E%3Cstop offset='1' stop-color='%237DAFFB' stop-opacity='1'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect x='0' y='0' fill='url(%23a)' width='2' height='1'/%3E%3Cg fill-opacity='0.25'%3E%3Cpolygon fill='url(%23b)' points='0 1 0 0 2 0'/%3E%3Cpolygon fill='url(%23c)' points='2 1 2 0 0 0'/%3E%3C/g%3E%3C/svg%3E");
@@ -39,7 +39,7 @@ nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 2rem;
+    padding: 0 3rem;
 }
 
 .navigation {
@@ -187,7 +187,7 @@ nav {
 .app {
     position: relative;
     max-width: 100rem;
-    margin: 4rem auto;
+    margin: 0 auto 4rem;
     display: grid;
     grid-template-columns: 5fr 7fr;
     grid-template-rows: auto repeat(3, 15rem) auto;
@@ -327,8 +327,8 @@ nav {
 }
 
 .overview__value {
-    font-size: 2.2rem;
-    margin-right: 2.5rem;
+    font-size: 2rem;
+    margin-right: 2rem;
 }
 
 .overview__value--in,
