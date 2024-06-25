@@ -222,7 +222,7 @@ btnClose.addEventListener('click', function (e) {
     inputTerminateUsername.value = inputTerminatePin.value = '';
 })
 
-/***** Loan ********/
+/***** Borrow ********/
 
 btnLoan.addEventListener('click', function (e) {
     e.preventDefault();
@@ -234,6 +234,8 @@ btnLoan.addEventListener('click', function (e) {
         showErrorMessage('Negative amount is not allowed');
     } else if (!currentAccount.transactions.some(tran => tran >= amount * 0.05)) {
         showErrorMessage('Amount is more than 5% of deposit');
+    } else if (amount === 0) {
+        showErrorMessage('Enter a value');
     } else {
         currentAccount.transactions.push(amount);
 
