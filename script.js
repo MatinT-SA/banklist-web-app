@@ -213,13 +213,13 @@ btnClose.addEventListener('click', function (e) {
         const index = accounts.findIndex(acc => acc.username === currentAccount.username);
 
         accounts.splice(index, 1);
+
+        containerApp.style.opacity = 0;
+
+        labelIntroSentence.textContent = 'Access your account by logging in';
     }
 
     inputTerminateUsername.value = inputTerminatePin.value = '';
-
-    containerApp.style.opacity = 0;
-
-    labelIntroSentence.textContent = 'Access your account by logging in';
 })
 
 /***** Loan ********/
