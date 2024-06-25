@@ -79,10 +79,12 @@ const hideErrorMessage = function () {
 };
 
 /***** Displaying Transactions ********/
-const displayTransactions = function (transactions) {
+const displayTransactions = function (transactions, sort = false) {
     containerTransactions.innerHTML = '';
 
-    transactions.forEach(function (tran, i) {
+    const tranForSort = sort ? transactions.slice().sort((a, b) => a - b) : transactions;
+
+    tranForSort.forEach(function (tran, i) {
         const type = tran > 0 ? 'deposit' : 'withdrawal';
         const html = `
             <div class="transactions__row">
@@ -239,4 +241,15 @@ btnLoan.addEventListener('click', function (e) {
     }
 
     inputLoanAmount.value = '';
+})
+
+/***** Sort ********/
+
+let sorting = false;
+
+btnSort.addEventListener('click', function (e) {
+    e.preventDefault();
+
+    displayTransactions(currentAccount.transactions, !sorting);
+    sorting = !sorting;
 })
