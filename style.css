@@ -134,8 +134,8 @@ nav {
     padding: 5px 0;
     position: absolute;
     z-index: 3;
-    bottom: 50px;
-    left: 30px;
+    top: 0;
+    left: 110px;
     margin-left: -60px;
     opacity: 0;
     transition: opacity 0.2s;
@@ -144,13 +144,13 @@ nav {
 .tooltip .tooltiptext::after {
     content: "";
     position: absolute;
-    top: 100%;
-    left: 50%;
-    margin-left: -5px;
+    top: 50%;
+    right: 100%;
+    margin-top: -5px;
     /* Adjust arrow position */
     border-width: 5px;
     border-style: solid;
-    border-color: #555 transparent transparent transparent;
+    border-color: transparent #555 transparent transparent;
 }
 
 .tooltip:hover .tooltiptext {
