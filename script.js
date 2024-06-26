@@ -216,7 +216,7 @@ btnClose.addEventListener('click', function (e) {
 
         containerApp.style.opacity = 0;
 
-        labelIntroSentence.textContent = 'Access your account by logging in';
+        labelIntroSentence.textContent = 'Log into your account';
     }
 
     inputTerminateUsername.value = inputTerminatePin.value = '';
