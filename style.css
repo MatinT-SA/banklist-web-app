@@ -259,10 +259,11 @@ nav {
     color: #D8000C;
     background-color: #FFBABA;
     position: absolute;
-    transform: translate(-20%, 60%);
+    transform: translate(-20%, 50%);
     transition: transform 0.5s ease, opacity 0.5s ease;
     opacity: 0;
-    top: 60%;
+    top: 50.5%;
+    left: 25%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -273,7 +274,7 @@ nav {
 .action__error-message.visible {
     opacity: 1;
     text-align: center;
-    transform: translate(0, 60%);
+    transform: translate(0, 50%);
 }
 
 .error-icon {
@@ -619,23 +620,28 @@ h2 {
 
     .overview {
         order: 3;
+        margin-bottom: 4rem;
+    }
+
+    .action__error-message {
+        order: 4
     }
 
     .action {
-        order: 4;
+        order: 5;
         margin-top: 0.5rem;
     }
 
     .action--loan {
-        order: 5;
-    }
-
-    .action--terminate {
         order: 6;
     }
 
-    .logout-timer {
+    .action--terminate {
         order: 7;
+    }
+
+    .logout-timer {
+        order: 8;
         margin: 1rem auto 2rem;
     }
 
