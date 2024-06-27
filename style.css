@@ -147,7 +147,6 @@ nav {
     top: 50%;
     right: 100%;
     margin-top: -5px;
-    /* Adjust arrow position */
     border-width: 5px;
     border-style: solid;
     border-color: transparent #555 transparent transparent;
@@ -522,5 +521,43 @@ h2 {
 
     .btn--sort {
         font-size: 2rem;
+    }
+}
+
+@media (max-width: 750px) {
+    .intro-sentence {
+        display: none;
+    }
+
+    nav {
+        padding: 1rem 0;
+    }
+
+    .tooltip .tooltiptext {
+        visibility: hidden;
+        width: 100px;
+        background-color: #555;
+        color: #fff;
+        text-align: center;
+        border-radius: 5px;
+        padding: 5px 0;
+        position: absolute;
+        z-index: 3;
+        top: -80%;
+        left: 0;
+        margin-left: -55px;
+        opacity: 0;
+        transition: opacity 0.2s;
+    }
+
+    .tooltip .tooltiptext::after {
+        content: "";
+        position: absolute;
+        top: 100%;
+        right: 30%;
+        margin-top: 0;
+        border-width: 5px;
+        border-style: solid;
+        border-color: #555 transparent transparent transparent;
     }
 }
