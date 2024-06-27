@@ -563,6 +563,10 @@ h2 {
 }
 
 @media (max-width: 500px) {
+    nav {
+        padding: 1.5rem 0;
+    }
+
     .login__input {
         width: 12rem;
         font-size: 1.5rem;
@@ -582,12 +586,12 @@ h2 {
         padding: 5px 0;
         position: absolute;
         z-index: 3;
-        top: -65%;
+        top: -105%;
         left: 0;
         margin-left: -55px;
         opacity: 0;
         transition: opacity 0.2s;
-        font-size: 1.3rem;
+        /* font-size: 1.3rem; */
     }
 
     .tooltip .tooltiptext::after {
@@ -599,5 +603,15 @@ h2 {
         border-width: 5px;
         border-style: solid;
         border-color: #555 transparent transparent transparent;
+    }
+
+    .login__btn-img {
+        width: 30px;
+        height: 30px;
+    }
+
+    .error-message {
+        width: 25rem;
+        font-size: 1.2rem;
     }
 }
