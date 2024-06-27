@@ -50,6 +50,7 @@ const inputLogins = document.querySelectorAll('.login__input');
 const inputLoginUsername = document.querySelector('.login__input--user');
 const inputLoginPin = document.querySelector('.login__input--pin');
 const errorMessage = document.querySelector('.error-message');
+const actionErrorMessage = document.querySelector('.action__error-message');
 const inputTransferTo = document.querySelector('.form__input--to');
 const inputTransferAmount = document.querySelector('.form__input--amount');
 const inputLoanAmount = document.querySelector('.form__input--loan-amount');
@@ -73,9 +74,24 @@ const showErrorMessage = function (message) {
     }, 3000);
 };
 
+/***** Display Action Error message ********/
+const showActionErrorMessage = function (message) {
+    actionErrorMessage.innerHTML = `<i class="fa-solid fa-times-circle error-icon"></i> ${message}`;
+    actionErrorMessage.classList.add('visible');
+
+    setTimeout(() => {
+        actionErrorMessage.classList.remove('visible');
+    }, 3000);
+};
+
 /***** Hide Error message ********/
 const hideErrorMessage = function () {
     errorMessage.classList.remove('visible');
+};
+
+/***** Hide Action Error message ********/
+const hideActionErrorMessage = function () {
+    actionErrorMessage.classList.remove('visible');
 };
 
 /***** Displaying Transactions ********/
@@ -185,41 +201,19 @@ btnTransfer.addEventListener('click', function (e) {
     inputTransferAmount.value = inputTransferTo.value = '';
 
     if (amount <= 0) {
-        showErrorMessage('Value is incorrect');
+        showActionErrorMessage('Value is incorrect');
     } else if (currentAccount.balanceAcc < amount) {
-        showErrorMessage('Balance limit');
+        showActionErrorMessage('Balance limit');
     } else if (!receiveAccount) {
-        showErrorMessage('Recipient doesn\'t exist');
+        showActionErrorMessage('Recipient doesn\'t exist');
     } else if (receiveAccount?.username === currentAccount.username) {
-        showErrorMessage('You can\'t transfer to yourself');
+        showActionErrorMessage('You can\'t transfer to yourself');
     } else {
         currentAccount.transactions.push(-amount);
         receiveAccount.transactions.push(amount);
 
         displayData(currentAccount);
     }
-})
-
-/***** Terminating account ********/
-
-btnClose.addEventListener('click', function (e) {
-    e.preventDefault();
-
-    if (inputTerminateUsername.value !== currentAccount.username) {
-        showErrorMessage('Invalid username');
-    } else if (Number(inputTerminatePin.value) !== currentAccount.pin) {
-        showErrorMessage('Invalid PIN');
-    } else {
-        const index = accounts.findIndex(acc => acc.username === currentAccount.username);
-
-        accounts.splice(index, 1);
-
-        containerApp.style.opacity = 0;
-
-        labelIntroSentence.textContent = 'Log into your account';
-    }
-
-    inputTerminateUsername.value = inputTerminatePin.value = '';
 })
 
 /***** Borrow ********/
@@ -231,11 +225,11 @@ btnLoan.addEventListener('click', function (e) {
 
 
     if (amount <= 0) {
-        showErrorMessage('Value is incorrect');
+        showActionErrorMessage('Value is incorrect');
     } else if (!currentAccount.transactions.some(tran => tran >= amount * 0.05)) {
-        showErrorMessage('Amount is more than 5% of deposit');
+        showActionErrorMessage('Amount is more than 5% of deposit');
     } else if (amount === 0) {
-        showErrorMessage('Enter a value');
+        showActionErrorMessage('Enter a value');
     } else {
         currentAccount.transactions.push(amount);
 
@@ -243,6 +237,28 @@ btnLoan.addEventListener('click', function (e) {
     }
 
     inputLoanAmount.value = '';
+})
+
+/***** Terminating account ********/
+
+btnClose.addEventListener('click', function (e) {
+    e.preventDefault();
+
+    if (inputTerminateUsername.value !== currentAccount.username) {
+        showActionErrorMessage('Invalid username');
+    } else if (Number(inputTerminatePin.value) !== currentAccount.pin) {
+        showActionErrorMessage('Invalid PIN');
+    } else {
+        const index = accounts.findIndex(acc => acc.username === currentAccount.username);
+
+        accounts.splice(index, 1);
+
+        containerApp.style.opacity = 0;
+
+        labelIntroSentence.textContent = 'Log into your account';
+    }
+
+    inputTerminateUsername.value = inputTerminatePin.value = '';
 })
 
 /***** Sort ********/

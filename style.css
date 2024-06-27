@@ -250,6 +250,32 @@ nav {
     transform: translate(0, 60%);
 }
 
+.action__error-message {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin: 10px 0;
+    padding: 10px;
+    border-radius: 4px 4px 4px 30px;
+    color: #D8000C;
+    background-color: #FFBABA;
+    position: absolute;
+    transform: translate(-20%, 60%);
+    transition: transform 0.5s ease, opacity 0.5s ease;
+    opacity: 0;
+    top: 60%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 100%;
+    width: 31rem;
+}
+
+.action__error-message.visible {
+    opacity: 1;
+    text-align: center;
+    transform: translate(0, 60%);
+}
+
 .error-icon {
     position: absolute;
     left: 1.5rem;
@@ -622,6 +648,10 @@ h2 {
 @media (max-width: 500px) {
     nav {
         padding: 1.5rem 0;
+    }
+
+    .balance {
+        margin: 0 1rem 1rem;
     }
 
     .login__input {
