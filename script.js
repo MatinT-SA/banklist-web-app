@@ -29,6 +29,9 @@ const account4 = {
 
 const accounts = [account1, account2, account3, account4];
 
+// Checking Width For Error Message
+const smallWidth = window.innerWidth < 700;
+
 const labelIntroSentence = document.querySelector('.intro-sentence');
 const labelDate = document.querySelector('.date');
 const labelBalance = document.querySelector('.balance__value');
@@ -201,13 +204,29 @@ btnTransfer.addEventListener('click', function (e) {
     inputTransferAmount.value = inputTransferTo.value = '';
 
     if (amount <= 0) {
-        showActionErrorMessage('Value is incorrect');
+        if (smallWidth) {
+            showActionErrorMessage('Value is incorrect');
+        } else {
+            showErrorMessage('Value is incorrect');
+        }
     } else if (currentAccount.balanceAcc < amount) {
-        showActionErrorMessage('Balance limit');
+        if (smallWidth) {
+            showActionErrorMessage('Balance limit');
+        } else {
+            showErrorMessage('Balance limit');
+        }
     } else if (!receiveAccount) {
-        showActionErrorMessage('Recipient doesn\'t exist');
+        if (smallWidth) {
+            showActionErrorMessage('Recipient doesn\'t exist');
+        } else {
+            showErrorMessage('Recipient doesn\'t exist');
+        }
     } else if (receiveAccount?.username === currentAccount.username) {
-        showActionErrorMessage('You can\'t transfer to yourself');
+        if (smallWidth) {
+            showActionErrorMessage('You can\'t transfer to yourself');
+        } else {
+            showErrorMessage('You can\'t transfer to yourself');
+        }
     } else {
         currentAccount.transactions.push(-amount);
         receiveAccount.transactions.push(amount);
@@ -223,13 +242,24 @@ btnLoan.addEventListener('click', function (e) {
 
     const amount = Number(inputLoanAmount.value);
 
-
     if (amount <= 0) {
-        showActionErrorMessage('Value is incorrect');
+        if (smallWidth) {
+            showActionErrorMessage('Value is incorrect');
+        } else {
+            showErrorMessage('Value is incorrect');
+        }
     } else if (!currentAccount.transactions.some(tran => tran >= amount * 0.05)) {
-        showActionErrorMessage('Amount is more than 5% of deposit');
+        if (smallWidth) {
+            showActionErrorMessage('Amount is more than 5% of deposit');
+        } else {
+            showErrorMessage('Amount is more than 5% of deposit');
+        }
     } else if (amount === 0) {
-        showActionErrorMessage('Enter a value');
+        if (smallWidth) {
+            showActionErrorMessage('Enter a value');
+        } else {
+            showErrorMessage('Enter a value');
+        }
     } else {
         currentAccount.transactions.push(amount);
 
@@ -245,9 +275,17 @@ btnClose.addEventListener('click', function (e) {
     e.preventDefault();
 
     if (inputTerminateUsername.value !== currentAccount.username) {
-        showActionErrorMessage('Invalid username');
+        if (smallWidth) {
+            showActionErrorMessage('Invalid username');
+        } else {
+            showErrorMessage('Invalid username');
+        }
     } else if (Number(inputTerminatePin.value) !== currentAccount.pin) {
-        showActionErrorMessage('Invalid PIN');
+        if (smallWidth) {
+            showActionErrorMessage('Invalid PIN');
+        } else {
+            showErrorMessage('Invalid PIN');
+        }
     } else {
         const index = accounts.findIndex(acc => acc.username === currentAccount.username);
 
