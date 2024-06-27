@@ -201,7 +201,7 @@ nav {
     display: flex;
     align-items: flex-end;
     justify-content: space-between;
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
 }
 
 .balance__label {
@@ -579,10 +579,12 @@ h2 {
     .app {
         display: flex;
         flex-direction: column;
+        padding: 1rem;
     }
 
     .balance {
         order: 1;
+        margin: 2rem 0 1rem;
     }
 
     .transactions {
@@ -611,13 +613,10 @@ h2 {
         margin: 1rem auto 2rem;
     }
 
-    /* .transactions {
-        grid-column: span 1;
+    .overview__value {
+        font-size: 2rem;
+        margin-right: 2rem;
     }
-
-    .action {
-        grid-column: span 1;
-    } */
 }
 
 @media (max-width: 500px) {
