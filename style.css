@@ -561,3 +561,43 @@ h2 {
         border-color: #555 transparent transparent transparent;
     }
 }
+
+@media (max-width: 500px) {
+    .login__input {
+        width: 12rem;
+        font-size: 1.5rem;
+    }
+
+    .logo {
+        height: 8rem;
+    }
+
+    .tooltip .tooltiptext {
+        visibility: hidden;
+        width: 100px;
+        background-color: #555;
+        color: #fff;
+        text-align: center;
+        border-radius: 5px;
+        padding: 5px 0;
+        position: absolute;
+        z-index: 3;
+        top: -65%;
+        left: 0;
+        margin-left: -55px;
+        opacity: 0;
+        transition: opacity 0.2s;
+        font-size: 1.3rem;
+    }
+
+    .tooltip .tooltiptext::after {
+        content: "";
+        position: absolute;
+        top: 100%;
+        right: 30%;
+        margin-top: -1px;
+        border-width: 5px;
+        border-style: solid;
+        border-color: #555 transparent transparent transparent;
+    }
+}
