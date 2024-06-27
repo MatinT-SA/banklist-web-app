@@ -314,8 +314,7 @@ nav {
     grid-row: 5 / 6;
     display: flex;
     align-items: baseline;
-    padding: 0 0.3rem;
-    margin-top: 1rem;
+    padding: 0 1rem;
 }
 
 .overview__label {
@@ -457,8 +456,8 @@ h2 {
 }
 
 .logout-timer {
-    padding: 0 0.3rem;
-    margin-top: 1.9rem;
+    padding: 0 1rem;
+    margin-top: 0.5rem;
     text-align: right;
     font-size: 1.25rem;
 }
@@ -521,6 +520,18 @@ h2 {
 
     .btn--sort {
         font-size: 2rem;
+    }
+}
+
+@media (max-width: 1000px) {
+    .app {
+        padding: 0 0.5rem;
+        gap: 1rem;
+    }
+
+    .overview__value {
+        font-size: 1.3rem;
+        margin-right: 1.3rem;
     }
 }
 
