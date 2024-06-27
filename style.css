@@ -459,7 +459,7 @@ h2 {
     padding: 0 1rem;
     margin-top: 0.5rem;
     text-align: right;
-    font-size: 1.25rem;
+    font-size: 1.5rem;
 }
 
 .timer {
@@ -527,11 +527,13 @@ h2 {
     .app {
         padding: 0 0.5rem;
         gap: 1rem;
+        grid-template-rows: auto repeat(3, 14rem) auto;
+        grid-template-columns: 3fr 3fr;
     }
 
     .overview__value {
-        font-size: 1.3rem;
-        margin-right: 1.3rem;
+        font-size: 1.5rem;
+        margin-right: 1.5rem;
     }
 }
 
