@@ -570,6 +570,7 @@ h2 {
     .login__input {
         width: 12rem;
         font-size: 1.5rem;
+        margin-right: 0.4rem;
     }
 
     .logo {
@@ -611,7 +612,7 @@ h2 {
     }
 
     .error-message {
-        width: 25rem;
+        width: 24rem;
         font-size: 1.2rem;
     }
 }

@@ -230,8 +230,8 @@ btnLoan.addEventListener('click', function (e) {
     const amount = Number(inputLoanAmount.value);
 
 
-    if (amount < 0) {
-        showErrorMessage('Negative amount is not allowed');
+    if (amount <= 0) {
+        showErrorMessage('Value is incorrect');
     } else if (!currentAccount.transactions.some(tran => tran >= amount * 0.05)) {
         showErrorMessage('Amount is more than 5% of deposit');
     } else if (amount === 0) {
