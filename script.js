@@ -184,10 +184,10 @@ btnTransfer.addEventListener('click', function (e) {
 
     inputTransferAmount.value = inputTransferTo.value = '';
 
-    if (amount < 0) {
-        showErrorMessage('Negative amounts are not allowed');
+    if (amount <= 0) {
+        showErrorMessage('Value is incorrect');
     } else if (currentAccount.balanceAcc < amount) {
-        showErrorMessage('Amount is more than your balance');
+        showErrorMessage('Balance limit');
     } else if (!receiveAccount) {
         showErrorMessage('Recipient doesn\'t exist');
     } else if (receiveAccount?.username === currentAccount.username) {
