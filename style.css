@@ -114,7 +114,6 @@ nav {
 .login__btn {
     border: none;
     background: none;
-    font-size: 2.2rem;
     color: inherit;
     transition: all 0.3s;
 }
@@ -260,10 +259,10 @@ nav {
     background-color: #FFBABA;
     position: absolute;
     transform: translate(-20%, 50%);
-    transition: transform 0.5s ease, opacity 0.5s ease;
-    opacity: 0;
     top: 50.5%;
     left: 25%;
+    transition: transform 0.5s ease, opacity 0.5s ease;
+    opacity: 0;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -574,30 +573,15 @@ h2 {
     }
 
     .tooltip .tooltiptext {
-        visibility: hidden;
-        width: 100px;
-        background-color: #555;
-        color: #fff;
-        text-align: center;
-        border-radius: 5px;
-        padding: 5px 0;
-        position: absolute;
-        z-index: 3;
         top: -80%;
         left: 0;
         margin-left: -55px;
-        opacity: 0;
-        transition: opacity 0.2s;
     }
 
     .tooltip .tooltiptext::after {
-        content: "";
-        position: absolute;
         top: 100%;
         right: 30%;
         margin-top: 0;
-        border-width: 5px;
-        border-style: solid;
         border-color: #555 transparent transparent transparent;
     }
 }
@@ -671,31 +655,15 @@ h2 {
     }
 
     .tooltip .tooltiptext {
-        visibility: hidden;
-        width: 100px;
-        background-color: #555;
-        color: #fff;
-        text-align: center;
-        border-radius: 5px;
-        padding: 5px 0;
-        position: absolute;
-        z-index: 3;
         top: -105%;
         left: 0;
         margin-left: -55px;
-        opacity: 0;
-        transition: opacity 0.2s;
-        /* font-size: 1.3rem; */
     }
 
     .tooltip .tooltiptext::after {
-        content: "";
-        position: absolute;
         top: 100%;
         right: 30%;
         margin-top: -1px;
-        border-width: 5px;
-        border-style: solid;
         border-color: #555 transparent transparent transparent;
     }
 
@@ -707,5 +675,46 @@ h2 {
     .error-message {
         width: 24rem;
         font-size: 1.2rem;
+    }
+
+    .action__error-message {
+        font-size: 1.2rem;
+        transform: translate(-20%, 50%);
+        top: 50.5%;
+        left: 15%;
+        width: 24rem;
+    }
+
+    .overview__value {
+        font-size: 1.5rem;
+        margin-right: 1.5rem;
+    }
+}
+
+@media (max-width: 375px) {
+    nav {
+        padding: 3rem 0 4rem;
+    }
+
+    .logo {
+        display: none;
+    }
+
+    .tooltip .tooltiptext {
+        top: -110%;
+        left: 0;
+        margin-left: -50px;
+    }
+
+    .tooltip .tooltiptext::after {
+        top: 100%;
+        right: 35%;
+        margin-top: 0;
+        border-color: #555 transparent transparent transparent;
+    }
+
+    .overview__value {
+        font-size: 1.2rem;
+        margin-right: 1.2rem;
     }
 }
