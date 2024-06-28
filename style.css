@@ -106,6 +106,7 @@ nav {
 .login__input:hover,
 .login__input:focus {
     background-color: rgb(223, 223, 223);
+    outline: none;
 }
 
 .login__input::placeholder {
