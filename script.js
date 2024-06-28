@@ -66,6 +66,7 @@ const inputTerminatePin = document.querySelector('.form__input--pin');
 const resetUI = function () {
     containerApp.style.opacity = 0;
     labelIntroSentence.textContent = 'Log into your account';
+    labelTimer.textContent = '10:00';
 }
 
 /***** Login/Logout toggle ********/
