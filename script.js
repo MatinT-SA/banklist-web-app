@@ -60,6 +60,12 @@ const inputLoanAmount = document.querySelector('.form__input--loan-amount');
 const inputTerminateUsername = document.querySelector('.form__input--user');
 const inputTerminatePin = document.querySelector('.form__input--pin');
 
+/***** Logout ********/
+// const logout = function () {
+//     containerApp.style.opacity = 0;
+//     labelIntroSentence.textContent = 'Log into your account';
+// }
+
 /***** Display Data ********/
 const displayData = function (acc) {
     displayTransactions(acc.transactions);
@@ -188,6 +194,8 @@ btnLogin.addEventListener('click', function (e) {
         });
 
         displayData(currentAccount);
+
+        // logout();
     } else {
         showErrorMessage('The PIN is incorrect');
     }
