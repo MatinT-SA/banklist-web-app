@@ -46,6 +46,11 @@ const btnLoan = document.querySelector('.form__btn--loan');
 const btnClose = document.querySelector('.form__btn--terminate');
 const btnSort = document.querySelector('.btn--sort');
 
+const loginContainer = document.querySelector('.login');
+const logoutContainer = document.querySelector('.logout');
+const logoutBtn = document.querySelector('.logout__btn');
+logoutContainer.style.display = 'none';
+
 const inputLogins = document.querySelectorAll('.login__input');
 const inputLoginUsername = document.querySelector('.login__input--user');
 const inputLoginPin = document.querySelector('.login__input--pin');
@@ -56,6 +61,23 @@ const inputTransferAmount = document.querySelector('.form__input--amount');
 const inputLoanAmount = document.querySelector('.form__input--loan-amount');
 const inputTerminateUsername = document.querySelector('.form__input--user');
 const inputTerminatePin = document.querySelector('.form__input--pin');
+
+/***** Reset UI ********/
+const resetUI = function () {
+    containerApp.style.opacity = 0;
+    labelIntroSentence.textContent = 'Log into your account';
+}
+
+/***** Login/Logout toggle ********/
+function toggleLogin() {
+    if (currentAccount) {
+        loginContainer.style.display = 'none';
+        logoutContainer.style.display = 'flex';
+    } else {
+        loginContainer.style.display = 'flex';
+        logoutContainer.style.display = 'none';
+    }
+}
 
 /***** Display Data ********/
 const displayData = function (acc) {
@@ -187,10 +209,28 @@ btnLogin.addEventListener('click', function (e) {
         startSessionTimer();
 
         displayData(currentAccount);
+
+        toggleLogin();
     } else {
         showErrorMessage('The PIN is incorrect');
     }
 });
+
+/***** Logout ********/
+
+logoutBtn.addEventListener('click', function (e) {
+    e.preventDefault();
+
+    currentAccount = undefined;
+
+    resetUI();
+
+    clearInterval(countdownTimer);
+
+    toggleLogin();
+});
+
+toggleLogin();
 
 /***** Transfer ********/
 
