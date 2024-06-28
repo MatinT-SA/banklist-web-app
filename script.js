@@ -29,9 +29,8 @@ const account4 = {
 
 const accounts = [account1, account2, account3, account4];
 
-// Checking Width For Error Message
+// Elements selection
 const smallWidth = window.innerWidth < 700;
-
 const labelIntroSentence = document.querySelector('.intro-sentence');
 const labelDate = document.querySelector('.date');
 const labelBalance = document.querySelector('.balance__value');
@@ -39,10 +38,8 @@ const labelOverviewIn = document.querySelector('.overview__value--in');
 const labelOverviewOut = document.querySelector('.overview__value--out');
 const labelOverviewInterest = document.querySelector('.overview__value--interest');
 const labelTimer = document.querySelector('.timer');
-
 const containerApp = document.querySelector('.app');
 const containerTransactions = document.querySelector('.transactions');
-
 const btnLogin = document.querySelector('.login__btn');
 const btnTransfer = document.querySelector('.form__btn--transfer');
 const btnLoan = document.querySelector('.form__btn--loan');
@@ -59,12 +56,6 @@ const inputTransferAmount = document.querySelector('.form__input--amount');
 const inputLoanAmount = document.querySelector('.form__input--loan-amount');
 const inputTerminateUsername = document.querySelector('.form__input--user');
 const inputTerminatePin = document.querySelector('.form__input--pin');
-
-/***** Logout ********/
-// const logout = function () {
-//     containerApp.style.opacity = 0;
-//     labelIntroSentence.textContent = 'Log into your account';
-// }
 
 /***** Display Data ********/
 const displayData = function (acc) {
@@ -193,9 +184,9 @@ btnLogin.addEventListener('click', function (e) {
             input.blur();
         });
 
-        displayData(currentAccount);
+        startSessionTimer();
 
-        // logout();
+        displayData(currentAccount);
     } else {
         showErrorMessage('The PIN is incorrect');
     }
@@ -317,3 +308,38 @@ btnSort.addEventListener('click', function (e) {
     displayTransactions(currentAccount.transactions, !sorting);
     sorting = !sorting;
 })
+
+/***** Logout Timer ********/
+
+let sessionTimeout;
+let timeLeft = 0;
+let countdownTimer;
+
+function startSessionTimer() {
+    clearInterval(countdownTimer);
+
+    sessionTimeout = 600;
+    timeLeft = sessionTimeout;
+
+    countdownTimer = setInterval(function () {
+        timeLeft--;
+        if (timeLeft < 0) {
+            clearInterval(countdownTimer);
+            handleSessionExpired();
+        } else {
+            updateSessionTimerDisplay(timeLeft);
+        }
+    }, 1000);
+}
+
+function updateSessionTimerDisplay(secondsLeft) {
+    const minutes = Math.floor(secondsLeft / 60);
+    const seconds = secondsLeft % 60;
+    const formattedTime = `${minutes}:${seconds < 10 ? '0' + seconds : seconds}`;
+    labelTimer.textContent = formattedTime;
+}
+
+function handleSessionExpired() {
+    containerApp.style.opacity = 0;
+    labelIntroSentence.textContent = 'Log into your account';
+}
