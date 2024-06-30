@@ -292,9 +292,9 @@ btnLoan.addEventListener('click', function (e) {
         }
     } else if (!currentAccount.transactions.some(tran => tran >= amount * 0.05)) {
         if (smallWidth) {
-            showActionErrorMessage('Amount is more than 5% of deposit');
+            showActionErrorMessage('More than 5% of deposit');
         } else {
-            showErrorMessage('Amount is more than 5% of deposit');
+            showErrorMessage('More than 5% of deposit');
         }
     } else if (amount === 0) {
         if (smallWidth) {
@@ -319,8 +319,10 @@ btnClose.addEventListener('click', function (e) {
     if (inputTerminateUsername.value !== currentAccount.username) {
         if (smallWidth) {
             showActionErrorMessage('Invalid username');
+            console.log("less than 700px");
         } else {
             showErrorMessage('Invalid username');
+            console.log("more than 700px");
         }
     } else if (Number(inputTerminatePin.value) !== currentAccount.pin) {
         if (smallWidth) {
