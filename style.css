@@ -35,6 +35,10 @@ body {
     background-size: cover;
 }
 
+.hidden {
+    display: none;
+}
+
 /* ❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃ */
 /* ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬╣ Navigation ╠▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬ */
 /* ❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃❃ */
@@ -269,7 +273,6 @@ nav {
     transform: translate(-20%, 60%);
     transition: transform 0.5s ease, opacity 0.5s ease;
     opacity: 0;
-    right: 10%;
     top: 60%;
     display: flex;
     justify-content: center;
@@ -507,7 +510,7 @@ h2 {
     border-radius: 0.7rem;
     font-size: 1.8rem;
     background-color: #fff;
-    cursor: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"%3E%3Cpath fill="%2322A200" d="M19.27 15.32 7.77 1.61A1 1 0 0 0 6 2.25v17.89a1 1 0 0 0 1.64.77l3.08-2.58 1.56 4.3a1 1 0 0 0 1.28.6l1.88-.68a1 1 0 0 0 .6-1.28l-1.56-4.3h4.02a1 1 0 0 0 .77-1.64Z"%3E%3C/path%3E%3C/svg%3E'), auto;
+    cursor: pointer;
     transition: all 0.3s;
 }
 
