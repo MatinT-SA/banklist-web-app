@@ -43,7 +43,7 @@ const containerTransactions = document.querySelector('.transactions');
 const btnLogin = document.querySelector('.login__btn');
 const btnTransfer = document.querySelector('.form__btn--transfer');
 const btnLoan = document.querySelector('.form__btn--loan');
-const btnClose = document.querySelector('.form__btn--terminate');
+const btnTerminate = document.querySelector('.form__btn--terminate');
 const btnSort = document.querySelector('.btn--sort');
 
 const loginContainer = document.querySelector('.login');
@@ -233,8 +233,6 @@ logoutBtn.addEventListener('click', function (e) {
     toggleLogin();
 });
 
-toggleLogin();
-
 /***** Transfer ********/
 
 btnTransfer.addEventListener('click', function (e) {
@@ -313,16 +311,14 @@ btnLoan.addEventListener('click', function (e) {
 
 /***** Terminating account ********/
 
-btnClose.addEventListener('click', function (e) {
+btnTerminate.addEventListener('click', function (e) {
     e.preventDefault();
 
     if (inputTerminateUsername.value !== currentAccount.username) {
         if (smallWidth) {
             showActionErrorMessage('Invalid username');
-            console.log("less than 700px");
         } else {
             showErrorMessage('Invalid username');
-            console.log("more than 700px");
         }
     } else if (Number(inputTerminatePin.value) !== currentAccount.pin) {
         if (smallWidth) {
@@ -336,8 +332,8 @@ btnClose.addEventListener('click', function (e) {
         accounts.splice(index, 1);
 
         containerApp.style.opacity = 0;
-
         labelIntroSentence.textContent = 'Log into your account';
+        toggleLogin();
     }
 
     inputTerminateUsername.value = inputTerminatePin.value = '';
