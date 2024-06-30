@@ -1,2 +1,2 @@
 # Banklist
-BankList is a responsive web application built with JavaScript for managing and viewing bank information. It features a user-friendly interface with dynamic data handling, real-time search, and filtering capabilities. Optimized for all devices, BankList ensures a seamless experience whether on desktop or mobile. (Under Development)
+BankList is a fully responsive web app optimized for seamless user experience on all devices and built with JavaScript (more focused on Front-End) for managing and viewing bank transactions with mock data. It features a user-friendly interface with dynamic data handling, and filtering capabilities to showcase almost all the array methods use cases.
