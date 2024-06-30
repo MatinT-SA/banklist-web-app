@@ -298,7 +298,7 @@ nav {
     position: absolute;
     transform: translate(-20%, 50%);
     top: 50.5%;
-    left: 25%;
+    left: 30%;
     transition: transform 0.5s ease, opacity 0.5s ease;
     opacity: 0;
     display: flex;
@@ -647,6 +647,33 @@ h2 {
 
     .action__error-message {
         order: 4;
+    }
+
+    .action__error-message {
+        font-size: 1.5rem;
+        font-weight: bold;
+        margin: 10px 0;
+        padding: 10px;
+        border-radius: 4px 4px 4px 30px;
+        color: #D8000C;
+        background-color: #FFBABA;
+        position: absolute;
+        transform: translate(-20%, 50%);
+        top: 50.5%;
+        left: 25%;
+        transition: transform 0.5s ease, opacity 0.5s ease;
+        opacity: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        max-width: 100%;
+        width: 31rem;
+    }
+
+    .action__error-message.visible {
+        opacity: 1;
+        text-align: center;
+        transform: translate(0, 50%);
     }
 
     .action {
