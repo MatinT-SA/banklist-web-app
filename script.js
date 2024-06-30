@@ -333,6 +333,8 @@ btnTerminate.addEventListener('click', function (e) {
 
         containerApp.style.opacity = 0;
         labelIntroSentence.textContent = 'Log into your account';
+
+        currentAccount = undefined;
         toggleLogin();
     }
 
