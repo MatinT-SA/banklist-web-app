@@ -49,6 +49,7 @@ const btnSort = document.querySelector('.btn--sort');
 const loginContainer = document.querySelector('.login');
 const logoutContainer = document.querySelector('.logout');
 const logoutBtn = document.querySelector('.logout__btn');
+const navigationLogin = document.querySelector('.navigation__login');
 logoutContainer.style.display = 'none';
 
 const inputLogins = document.querySelectorAll('.login__input');
@@ -74,6 +75,7 @@ function toggleLogin() {
     if (currentAccount) {
         loginContainer.style.display = 'none';
         logoutContainer.style.display = 'flex';
+        navigationLogin.style.cssText = 'display: flex; justify-content: center; align-items: center; width: 31rem;';
     } else {
         loginContainer.style.display = 'flex';
         logoutContainer.style.display = 'none';
