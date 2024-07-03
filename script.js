@@ -386,7 +386,3 @@ function handleSessionExpired() {
     containerApp.style.opacity = 0;
     labelIntroSentence.textContent = 'Log into your account';
 }
-
-
-// numbers
-console.log(Math.sqrt(25));
