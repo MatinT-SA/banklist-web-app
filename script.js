@@ -130,7 +130,7 @@ const displayTransactions = function (transactions, sort = false) {
         const html = `
             <div class="transactions__row">
                 <div class="transactions__type transactions__type--${type}">${i + 1} ${type}</div>
-                <div class="transactions__value">${tran}$</div>
+                <div class="transactions__value">${tran.toFixed(2)}$</div>
             </div>
         `;
         containerTransactions.insertAdjacentHTML('afterbegin', html);
@@ -140,7 +140,7 @@ const displayTransactions = function (transactions, sort = false) {
 /***** Displaying Balance ********/
 const displayBalance = function (accs) {
     accs.balanceAcc = accs.transactions.reduce((acc, cur) => acc + cur);
-    labelBalance.textContent = `${accs.balanceAcc} $`;
+    labelBalance.textContent = `${accs.balanceAcc.toFixed(2)} $`;
 }
 
 /***** Displaying Overview ********/
@@ -160,9 +160,9 @@ const calcDisplayOverview = function (accs) {
         .filter(int => int >= 4)
         .reduce((acc, int) => acc + int, 0);
 
-    labelOverviewIn.textContent = `${income} $`;
-    labelOverviewOut.textContent = `${outcome} $`;
-    labelOverviewInterest.textContent = `${interest} $`;
+    labelOverviewIn.textContent = `${income.toFixed(2)} $`;
+    labelOverviewOut.textContent = `${outcome.toFixed(2)} $`;
+    labelOverviewInterest.textContent = `${interest.toFixed(2)} $`;
 }
 
 /***** Username ********/
