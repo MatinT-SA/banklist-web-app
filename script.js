@@ -280,7 +280,7 @@ btnTransfer.addEventListener('click', function (e) {
 btnLoan.addEventListener('click', function (e) {
     e.preventDefault();
 
-    const amount = Number(inputLoanAmount.value);
+    const amount = Math.floor(inputLoanAmount.value);
 
     if (amount <= 0) {
         if (smallWidth) {
@@ -386,3 +386,7 @@ function handleSessionExpired() {
     containerApp.style.opacity = 0;
     labelIntroSentence.textContent = 'Log into your account';
 }
+
+
+// numbers
+console.log(Math.sqrt(25));
