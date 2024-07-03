@@ -596,8 +596,8 @@ h2 {
     }
 
     .overview__value {
-        font-size: 1.5rem;
-        margin-right: 1.5rem;
+        font-size: 1.2rem;
+        margin-right: 1.3rem;
     }
 }
 
@@ -751,8 +751,13 @@ h2 {
     }
 
     .overview__value {
-        font-size: 1.5rem;
-        margin-right: 1.5rem;
+        font-size: 1.2rem;
+        margin-right: 1.2rem;
+    }
+
+    .overview__label {
+        font-size: .8rem;
+        margin-right: .5rem;
     }
 }
 
