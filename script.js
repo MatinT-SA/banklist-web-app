@@ -3,28 +3,28 @@ const account1 = {
     client: 'Matin Taherzadeh',
     pin: 1234,
     interestRate: 1.2,
-    transactions: [500, -200, 1500, -700, 800, 250, -100, 1300],
+    transactions: [500, -200, 1500, -700, 800, 250, -100, 1300, -130],
 };
 
 const account2 = {
     client: 'Roger Federer',
     pin: 1235,
     interestRate: 1.5,
-    transactions: [7000, -3000, 4500, -1500, 2000, -1200, 1000, -500],
+    transactions: [7000, -3000, 4500, -1500, 2000, -1200, 1000],
 };
 
 const account3 = {
     client: 'Rafael Nadal',
     pin: 1236,
     interestRate: 0.7,
-    transactions: [100, -500, 800, -400, 250, -50, 700, -300],
+    transactions: [100, -500, 800, -400, 250, -50, 700, -300, 780, -640, 400],
 };
 
 const account4 = {
     client: 'Novak Djokovic',
     pin: 1237,
     interestRate: 1,
-    transactions: [300, 900, -200, 400, 150, -100, 800, 50],
+    transactions: [300, 900, -200, 400, 150],
 };
 
 const accounts = [account1, account2, account3, account4];
