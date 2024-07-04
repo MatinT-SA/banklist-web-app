@@ -127,7 +127,7 @@ function toggleLogin() {
 
 /***** Display Data ********/
 const displayData = function (acc) {
-    displayTransactions(acc.transactions);
+    displayTransactions(acc);
     displayBalance(acc);
     calcDisplayOverview(acc);
 }
@@ -163,16 +163,26 @@ const hideActionErrorMessage = function () {
 };
 
 /***** Displaying Transactions ********/
-const displayTransactions = function (transactions, sort = false) {
+const displayTransactions = function (acc, sort = false) {
     containerTransactions.innerHTML = '';
 
-    const tranForSort = sort ? transactions.slice().sort((a, b) => a - b) : transactions;
+    const tranForSort = sort ? acc.transactions.slice().sort((a, b) => a - b) : acc.transactions;
+
+
 
     tranForSort.forEach(function (tran, i) {
         const type = tran > 0 ? 'deposit' : 'withdrawal';
+
+        const tranDate = new Date(acc.transactionsDates[i]);
+        const year = tranDate.getFullYear();
+        const month = `${tranDate.getMonth()}`.padStart(2, 0);
+        const day = `${tranDate.getDate()}`.padStart(2, 0);
+        const displayDate = `${year}/${month}/${day}`;
+
         const html = `
             <div class="transactions__row">
                 <div class="transactions__type transactions__type--${type}">${i + 1} ${type}</div>
+                <div class="transactions__date">${displayDate}</div>
                 <div class="transactions__value">${tran.toFixed(2)}$</div>
             </div>
         `;
@@ -184,16 +194,6 @@ const displayTransactions = function (transactions, sort = false) {
         })
     })
 }
-
-/***** Balance Date ********/
-const date = new Date();
-const year = date.getFullYear();
-const month = `${date.getMonth()}`.padStart(2, 0);
-const day = `${date.getDate()}`.padStart(2, 0);
-const hour = date.getHours();
-const min = date.getMinutes();
-labelDate.textContent = `${year}/${month}/${day}, ${hour}:${min}`;
-
 
 /***** Displaying Balance ********/
 const displayBalance = function (accs) {
@@ -266,6 +266,14 @@ btnLogin.addEventListener('click', function (e) {
             input.value = '';
             input.blur();
         });
+
+        const date = new Date();
+        const year = date.getFullYear();
+        const month = `${date.getMonth() + 1}`.padStart(2, 0);
+        const day = `${date.getDate()}`.padStart(2, 0);
+        const hour = date.getHours();
+        const min = date.getMinutes();
+        labelDate.textContent = `${year}/${month}/${day}, ${hour}:${min}`;
 
         startSessionTimer();
 
@@ -406,7 +414,7 @@ let sorting = false;
 btnSort.addEventListener('click', function (e) {
     e.preventDefault();
 
-    displayTransactions(currentAccount.transactions, !sorting);
+    displayTransactions(currentAccount, !sorting);
     sorting = !sorting;
 })
 
