@@ -134,6 +134,11 @@ const displayTransactions = function (transactions, sort = false) {
             </div>
         `;
         containerTransactions.insertAdjacentHTML('afterbegin', html);
+
+        // styling odd transaction rows
+        [...document.querySelectorAll('.transactions__row')].forEach(function (row, i) {
+            i % 2 !== 0 ? row.style.backgroundColor = 'rgb(230, 230, 230)' : row.style.backgroundColor = 'transparent';
+        })
     })
 }
 
