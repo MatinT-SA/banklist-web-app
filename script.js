@@ -142,6 +142,16 @@ const displayTransactions = function (transactions, sort = false) {
     })
 }
 
+/***** Balance Date ********/
+const date = new Date();
+const year = date.getFullYear();
+const month = `${date.getMonth()}`.padStart(2, 0);
+const day = `${date.getDate()}`.padStart(2, 0);
+const hour = date.getHours();
+const min = date.getMinutes();
+labelDate.textContent = `${year}/${month}/${day}, ${hour}:${min}`;
+
+
 /***** Displaying Balance ********/
 const displayBalance = function (accs) {
     accs.balanceAcc = accs.transactions.reduce((acc, cur) => acc + cur);
