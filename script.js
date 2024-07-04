@@ -271,8 +271,8 @@ btnLogin.addEventListener('click', function (e) {
         const year = date.getFullYear();
         const month = `${date.getMonth() + 1}`.padStart(2, 0);
         const day = `${date.getDate()}`.padStart(2, 0);
-        const hour = date.getHours();
-        const min = date.getMinutes();
+        const hour = `${date.getHours()}`.padStart(2, 0);
+        const min = `${date.getMinutes()}`.padStart(2, 0);
         labelDate.textContent = `${year}/${month}/${day}, ${hour}:${min}`;
 
         startSessionTimer();
