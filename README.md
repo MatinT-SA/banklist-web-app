@@ -5,7 +5,9 @@ BankList is a fully responsive web app optimized for seamless user experience on
 
 
 # Users (respectively):
-- username:
-  mt - rf - rn - nd
-- pin:
-  1234 - 1235 - 1236 - 1237
+- Usernames & Pins: [
+  mt: 1234,
+  rf: 1235,
+  rn: 1236,
+  nd: 1237
+]
