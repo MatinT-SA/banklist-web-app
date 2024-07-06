@@ -113,15 +113,21 @@ const formatTransactionsDate = (dates) => {
 
     const daysPassed = calcDaysPassed(new Date(), dates);
 
-    if (daysPassed === 0) return 'Today';
-    if (daysPassed === 1) return 'Yesterday';
-    if (daysPassed <= 7) return `${daysPassed} days ago`;
-
-    const year = dates.getFullYear();
-    const month = `${dates.getMonth()}`.padStart(2, 0);
-    const day = `${dates.getDate()}`.padStart(2, 0);
-    return `${year}/${month}/${day}`;
+    switch (true) {
+        case (daysPassed === 0):
+            return 'Today';
+        case (daysPassed === 1):
+            return 'Yesterday';
+        case (daysPassed <= 7):
+            return `${daysPassed} days ago`;
+        default:
+            const year = dates.getFullYear();
+            const month = `${dates.getMonth() + 1}`.padStart(2, '0'); // Corrected to getMonth() + 1 for accurate month
+            const day = `${dates.getDate()}`.padStart(2, '0');
+            return `${year}/${month}/${day}`;
+    }
 }
+
 
 /***** Reset UI ********/
 const resetUI = function () {
