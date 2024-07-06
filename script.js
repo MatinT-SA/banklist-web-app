@@ -4,6 +4,8 @@ const account1 = {
     pin: 1234,
     interestRate: 1.2,
     transactions: [500, -200, 1500, -700, 800, 250, -100, 1300, -130],
+    currency: 'IRR',
+    locale: 'fa-IR',
 
     transactionsDates: [
         '2024-06-04T00:00:00Z',
@@ -23,6 +25,8 @@ const account2 = {
     pin: 1235,
     interestRate: 1.5,
     transactions: [7000, -3000, 4500, -1500, 2000, -1200, 1000],
+    currency: 'CHF',
+    locale: 'de-CH',
 
     transactionsDates: [
         '2024-05-04T01:30:00Z',
@@ -40,6 +44,8 @@ const account3 = {
     pin: 1236,
     interestRate: 0.7,
     transactions: [100, -500, 800, -400, 250, -50, 700, -300, 780, -640, 400],
+    currency: 'ESP',
+    locale: 'es-ES',
 
     transactionsDates: [
         '2024-06-21T02:00:00Z',
@@ -61,6 +67,8 @@ const account4 = {
     pin: 1237,
     interestRate: 1,
     transactions: [300, 900, -200, 400, 150],
+    currency: 'RSD',
+    locale: 'sr-SP',
 
     transactionsDates: [
         '2024-06-25T08:00:00Z',
@@ -287,12 +295,24 @@ btnLogin.addEventListener('click', function (e) {
         });
 
         const date = new Date();
-        const year = date.getFullYear();
-        const month = `${date.getMonth() + 1}`.padStart(2, 0);
-        const day = `${date.getDate()}`.padStart(2, 0);
-        const hour = `${date.getHours()}`.padStart(2, 0);
-        const min = `${date.getMinutes()}`.padStart(2, 0);
-        labelDate.textContent = `${year}/${month}/${day}, ${hour}:${min}`;
+        const options = {
+            day: 'numeric',
+            month: 'long',
+            year: 'numeric',
+            hour: 'numeric',
+            minute: 'numeric',
+            weekday: 'long'
+        };
+
+        labelDate.textContent = new Intl.DateTimeFormat(currentAccount.locale, options).format(date);
+
+        // const date = new Date();
+        // const year = date.getFullYear();
+        // const month = `${date.getMonth() + 1}`.padStart(2, 0);
+        // const day = `${date.getDate()}`.padStart(2, 0);
+        // const hour = `${date.getHours()}`.padStart(2, 0);
+        // const min = `${date.getMinutes()}`.padStart(2, 0);
+        // labelDate.textContent = `${year}/${month}/${day}, ${hour}:${min}`;
 
         startSessionTimer();
 
