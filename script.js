@@ -256,9 +256,9 @@ const calcDisplayOverview = function (accs) {
         .filter(int => int >= 4)
         .reduce((acc, int) => acc + int, 0);
 
-    labelOverviewIn.textContent = `${income.toFixed(2)} $`;
-    labelOverviewOut.textContent = `${outcome.toFixed(2)} $`;
-    labelOverviewInterest.textContent = `${interest.toFixed(2)} $`;
+    labelOverviewIn.textContent = formatTransactionsCurrency(income, accs.locale, accs.currency);
+    labelOverviewOut.textContent = formatTransactionsCurrency(outcome, accs.locale, accs.currency);
+    labelOverviewInterest.textContent = formatTransactionsCurrency(interest, accs.locale, accs.currency);
 }
 
 /***** Username ********/
