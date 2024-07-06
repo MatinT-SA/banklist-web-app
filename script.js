@@ -197,16 +197,24 @@ const displayTransactions = function (acc, sort = false) {
     const tranForSort = sort ? acc.transactions.slice().sort((a, b) => a - b) : acc.transactions;
 
     tranForSort.forEach(function (tran, i) {
+        // determining the type of transaction
         const type = tran > 0 ? 'deposit' : 'withdrawal';
 
+        // formatting date for transactions
         const tranDate = new Date(acc.transactionsDates[i]);
         const displayDate = formatTransactionsDate(tranDate);
+
+        // formating currency
+        const formatCurrency = new Intl.NumberFormat(acc.locale, {
+            style: 'currency',
+            currency: acc.currency,
+        }).format(tran);
 
         const html = `
             <div class="transactions__row">
                 <div class="transactions__type transactions__type--${type}">${i + 1} ${type}</div>
                 <div class="transactions__date">${displayDate}</div>
-                <div class="transactions__value">${tran.toFixed(2)}$</div>
+                <div class="transactions__value">${formatCurrency}</div>
             </div>
         `;
         containerTransactions.insertAdjacentHTML('afterbegin', html);
