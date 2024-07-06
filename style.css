@@ -793,6 +793,10 @@ h2 {
     }
 
     .transactions__type {
-        font-size: 1rem;
+        font-size: 1.1rem;
+    }
+
+    .transactions__row {
+        padding: 2rem;
     }
 }
