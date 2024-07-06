@@ -115,6 +115,14 @@ const inputLoanAmount = document.querySelector('.form__input--loan-amount');
 const inputTerminateUsername = document.querySelector('.form__input--user');
 const inputTerminatePin = document.querySelector('.form__input--pin');
 
+/***** Formatting currencies ********/
+const formatTransactionsCurrency = (value, locale, currency) => {
+    return new Intl.NumberFormat(locale, {
+        style: 'currency',
+        currency: currency,
+    }).format(value);
+}
+
 /***** Formatting dates ********/
 const formatTransactionsDate = (dates) => {
     const calcDaysPassed = (date1, date2) => Math.round(Math.abs(date2 - date1) / (1000 * 60 * 60 * 24));
@@ -205,10 +213,7 @@ const displayTransactions = function (acc, sort = false) {
         const displayDate = formatTransactionsDate(tranDate);
 
         // formating currency
-        const formatCurrency = new Intl.NumberFormat(acc.locale, {
-            style: 'currency',
-            currency: acc.currency,
-        }).format(tran);
+        const formatCurrency = formatTransactionsCurrency(tran, acc.locale, acc.currency);
 
         const html = `
             <div class="transactions__row">
