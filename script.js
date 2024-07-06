@@ -122,12 +122,11 @@ const formatTransactionsDate = (dates) => {
             return `${daysPassed} days ago`;
         default:
             const year = dates.getFullYear();
-            const month = `${dates.getMonth() + 1}`.padStart(2, '0'); // Corrected to getMonth() + 1 for accurate month
+            const month = `${dates.getMonth() + 1}`.padStart(2, '0');
             const day = `${dates.getDate()}`.padStart(2, '0');
             return `${year}/${month}/${day}`;
     }
 }
-
 
 /***** Reset UI ********/
 const resetUI = function () {
