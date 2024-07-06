@@ -257,7 +257,7 @@ const calcDisplayOverview = function (accs) {
         .reduce((acc, int) => acc + int, 0);
 
     labelOverviewIn.textContent = formatTransactionsCurrency(income, accs.locale, accs.currency);
-    labelOverviewOut.textContent = formatTransactionsCurrency(outcome, accs.locale, accs.currency);
+    labelOverviewOut.textContent = formatTransactionsCurrency(Math.abs(outcome), accs.locale, accs.currency);
     labelOverviewInterest.textContent = formatTransactionsCurrency(interest, accs.locale, accs.currency);
 }
 
