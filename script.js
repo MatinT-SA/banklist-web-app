@@ -234,7 +234,9 @@ const displayTransactions = function (acc, sort = false) {
 /***** Displaying Balance ********/
 const displayBalance = function (accs) {
     accs.balanceAcc = accs.transactions.reduce((acc, cur) => acc + cur);
-    labelBalance.textContent = `${accs.balanceAcc.toFixed(2)} $`;
+    labelBalance.textContent = formatTransactionsCurrency(accs.balanceAcc, accs.locale, accs.currency);
+
+    `${accs.balanceAcc.toFixed(2)} $`;
 }
 
 /***** Displaying Overview ********/
