@@ -420,11 +420,14 @@ btnLoan.addEventListener('click', function (e) {
             showErrorMessage('Enter a value');
         }
     } else {
-        currentAccount.transactions.push(amount);
+        // adding after 1.2 seconds delay
+        setTimeout(() => {
+            currentAccount.transactions.push(amount);
 
-        currentAccount.transactionsDates.push(new Date().toISOString());
+            currentAccount.transactionsDates.push(new Date().toISOString());
 
-        displayData(currentAccount);
+            displayData(currentAccount);
+        }, 1200);
     }
 
     inputLoanAmount.value = '';
@@ -507,3 +510,13 @@ function handleSessionExpired() {
     containerApp.style.opacity = 0;
     labelIntroSentence.textContent = 'Log into your account';
 }
+
+
+
+// test
+const ingredients = ['olives', ''];
+const pizzaTimer = setTimeout((ing1, ing2) => {
+    console.log(`Here is your pizza with ${ing1} and ${ing2}`)
+}, 3000, ...ingredients);
+
+if (ingredients.includes('spinach')) clearTimeout(pizzaTimer);
