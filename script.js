@@ -6,15 +6,15 @@ const account1 = {
     transactions: [500, -200, 1500, -700, 800, 250, -100, 1300, -130],
 
     transactionsDates: [
-        '2024-07-04T00:00:00Z',
-        '2024-07-04T03:30:45Z',
-        '2024-07-04T07:15:30Z',
-        '2024-07-04T10:45:15Z',
-        '2024-07-05T14:00:00Z',
-        '2024-07-05T16:30:30Z',
-        '2024-07-06T19:45:45Z',
-        '2024-07-06T21:15:15Z',
-        '2024-07-04T23:59:59Z'
+        '2024-06-04T00:00:00Z',
+        '2024-06-12T03:30:45Z',
+        '2024-06-20T07:15:30Z',
+        '2024-06-30T10:45:15Z',
+        '2024-07-01T14:00:00Z',
+        '2024-07-02T16:30:30Z',
+        '2024-07-03T19:45:45Z',
+        '2024-07-04T21:15:15Z',
+        '2024-07-05T23:59:59Z'
     ]
 };
 
@@ -25,10 +25,10 @@ const account2 = {
     transactions: [7000, -3000, 4500, -1500, 2000, -1200, 1000],
 
     transactionsDates: [
-        '2024-07-04T01:30:00Z',
-        '2024-07-04T05:00:45Z',
-        '2024-07-04T09:45:30Z',
-        '2024-07-04T12:15:15Z',
+        '2024-05-04T01:30:00Z',
+        '2024-06-27T05:00:45Z',
+        '2024-06-30T09:45:30Z',
+        '2024-07-02T12:15:15Z',
         '2024-07-05T16:30:00Z',
         '2024-07-06T18:00:30Z',
         '2024-07-07T21:15:45Z'
@@ -51,8 +51,8 @@ const account3 = {
         '2024-06-27T22:45:45Z',
         '2024-06-28T00:15:15Z',
         '2024-06-29T03:59:59Z',
-        '2024-06-30T06:20:10Z',
-        '2024-06-30T09:41:31Z',
+        '2024-07-04T06:20:10Z',
+        '2024-07-05T09:41:31Z',
     ]
 };
 
@@ -66,8 +66,8 @@ const account4 = {
         '2024-06-25T08:00:00Z',
         '2024-06-27T14:45:30Z',
         '2024-07-01T18:15:15Z',
-        '2024-07-05T09:45:30Z',
-        '2024-07-11T19:00:30Z'
+        '2024-07-04T09:45:30Z',
+        '2024-07-05T19:00:30Z'
     ]
 };
 
@@ -106,6 +106,16 @@ const inputTransferAmount = document.querySelector('.form__input--amount');
 const inputLoanAmount = document.querySelector('.form__input--loan-amount');
 const inputTerminateUsername = document.querySelector('.form__input--user');
 const inputTerminatePin = document.querySelector('.form__input--pin');
+
+/***** Formatting dates ********/
+const formatTransactionsDate = (dates) => {
+    const calcDaysPassed = (date1, date2) => Math.round(Math.abs(date2 - date1) / (1000 * 60 * 60 * 24));
+
+    const year = tranDate.getFullYear();
+    const month = `${tranDate.getMonth()}`.padStart(2, 0);
+    const day = `${tranDate.getDate()}`.padStart(2, 0);
+    const displayDate = `${year}/${month}/${day}`;
+}
 
 /***** Reset UI ********/
 const resetUI = function () {
