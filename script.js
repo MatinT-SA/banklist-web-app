@@ -129,10 +129,8 @@ const formatTransactionsDate = (dates) => {
         case (daysPassed <= 7):
             return `${daysPassed} days ago`;
         default:
-            const year = dates.getFullYear();
-            const month = `${dates.getMonth() + 1}`.padStart(2, '0');
-            const day = `${dates.getDate()}`.padStart(2, '0');
-            return `${year}/${month}/${day}`;
+            const localeInsideFormatDate = navigator.language;
+            return new Intl.DateTimeFormat(localeInsideFormatDate).format(dates);
     }
 }
 
@@ -197,8 +195,6 @@ const displayTransactions = function (acc, sort = false) {
     containerTransactions.innerHTML = '';
 
     const tranForSort = sort ? acc.transactions.slice().sort((a, b) => a - b) : acc.transactions;
-
-
 
     tranForSort.forEach(function (tran, i) {
         const type = tran > 0 ? 'deposit' : 'withdrawal';
