@@ -709,6 +709,10 @@ h2 {
         margin: 0 1rem 1rem;
     }
 
+    .balance__value {
+        font-size: 2rem;
+    }
+
     .login__input {
         width: 12rem;
         font-size: 1.5rem;
@@ -786,5 +790,9 @@ h2 {
     .overview__value {
         font-size: 1.2rem;
         margin-right: 1.2rem;
+    }
+
+    .transactions__type {
+        font-size: 1rem;
     }
 }
