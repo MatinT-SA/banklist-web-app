@@ -111,10 +111,16 @@ const inputTerminatePin = document.querySelector('.form__input--pin');
 const formatTransactionsDate = (dates) => {
     const calcDaysPassed = (date1, date2) => Math.round(Math.abs(date2 - date1) / (1000 * 60 * 60 * 24));
 
-    const year = tranDate.getFullYear();
-    const month = `${tranDate.getMonth()}`.padStart(2, 0);
-    const day = `${tranDate.getDate()}`.padStart(2, 0);
-    const displayDate = `${year}/${month}/${day}`;
+    const daysPassed = calcDaysPassed(new Date(), dates);
+
+    if (daysPassed === 0) return 'Today';
+    if (daysPassed === 1) return 'Yesterday';
+    if (daysPassed <= 7) return `${daysPassed} days ago`;
+
+    const year = dates.getFullYear();
+    const month = `${dates.getMonth()}`.padStart(2, 0);
+    const day = `${dates.getDate()}`.padStart(2, 0);
+    return `${year}/${month}/${day}`;
 }
 
 /***** Reset UI ********/
@@ -185,10 +191,7 @@ const displayTransactions = function (acc, sort = false) {
         const type = tran > 0 ? 'deposit' : 'withdrawal';
 
         const tranDate = new Date(acc.transactionsDates[i]);
-        const year = tranDate.getFullYear();
-        const month = `${tranDate.getMonth()}`.padStart(2, 0);
-        const day = `${tranDate.getDate()}`.padStart(2, 0);
-        const displayDate = `${year}/${month}/${day}`;
+        const displayDate = formatTransactionsDate(tranDate);
 
         const html = `
             <div class="transactions__row">
