@@ -720,7 +720,7 @@ h2 {
     }
 
     .balance {
-        margin: 0 1rem 1rem;
+        margin: 0 1em 1rem;
     }
 
     .balance__value {
@@ -799,6 +799,14 @@ h2 {
         right: 35%;
         margin-top: 0;
         border-color: #555 transparent transparent transparent;
+    }
+
+    .balance {
+        margin: 0 0.25rem 1rem;
+    }
+
+    .balance__date {
+        font-size: 1.2rem;
     }
 
     .overview__value {
