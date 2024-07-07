@@ -500,9 +500,9 @@ function startSessionTimer() {
 }
 
 function updateSessionTimerDisplay(secondsLeft) {
-    const minutes = Math.floor(secondsLeft / 60);
-    const seconds = secondsLeft % 60;
-    const formattedTime = `${minutes}:${seconds < 10 ? '0' + seconds : seconds}`;
+    const minutes = String(Math.floor(secondsLeft / 60)).padStart(2, 0);
+    const seconds = String(secondsLeft % 60).padStart(2, 0);
+    const formattedTime = `${minutes}:${seconds}`;
     labelTimer.textContent = formattedTime;
 }
 
