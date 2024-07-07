@@ -601,6 +601,20 @@ h2 {
     }
 }
 
+@media (max-width: 850px) {
+    .transactions__row {
+        padding: 2rem;
+    }
+
+    .transactions__value {
+        font-size: 1.5rem;
+    }
+
+    .transactions__type {
+        font-size: 1.1rem;
+    }
+}
+
 @media (max-width: 750px) {
     .intro-sentence {
         display: none;
@@ -706,7 +720,7 @@ h2 {
     }
 
     .balance {
-        margin: 0 1rem 1rem;
+        margin: 0 1em 1rem;
     }
 
     .balance__value {
@@ -785,6 +799,14 @@ h2 {
         right: 35%;
         margin-top: 0;
         border-color: #555 transparent transparent transparent;
+    }
+
+    .balance {
+        margin: 0 0.25rem 1rem;
+    }
+
+    .balance__date {
+        font-size: 1.2rem;
     }
 
     .overview__value {

@@ -83,6 +83,9 @@ const accounts = [account1, account2, account3, account4];
 
 // Elements selection
 const smallWidth = window.innerWidth < 700;
+
+let timerLogout;
+
 const labelIntroSentence = document.querySelector('.intro-sentence');
 const labelDate = document.querySelector('.date');
 const labelBalance = document.querySelector('.balance__value');
@@ -317,15 +320,8 @@ btnLogin.addEventListener('click', function (e) {
 
         labelDate.textContent = new Intl.DateTimeFormat(currentAccount.locale, options).format(date);
 
-        // const date = new Date();
-        // const year = date.getFullYear();
-        // const month = `${date.getMonth() + 1}`.padStart(2, 0);
-        // const day = `${date.getDate()}`.padStart(2, 0);
-        // const hour = `${date.getHours()}`.padStart(2, 0);
-        // const min = `${date.getMinutes()}`.padStart(2, 0);
-        // labelDate.textContent = `${year}/${month}/${day}, ${hour}:${min}`;
-
-        startSessionTimer();
+        if (timerLogout) clearInterval(timerLogout);
+        timerLogout = startSessionTimer();
 
         displayData(currentAccount);
 
@@ -384,13 +380,20 @@ btnTransfer.addEventListener('click', function (e) {
             showErrorMessage('You can\'t transfer to yourself');
         }
     } else {
-        currentAccount.transactions.push(-amount);
-        receiveAccount.transactions.push(amount);
+        // adding after 1 seconds delay
+        setTimeout(() => {
+            currentAccount.transactions.push(-amount);
+            receiveAccount.transactions.push(amount);
 
-        currentAccount.transactionsDates.push(new Date().toISOString());
-        receiveAccount.transactionsDates.push(new Date().toISOString());
+            currentAccount.transactionsDates.push(new Date().toISOString());
+            receiveAccount.transactionsDates.push(new Date().toISOString());
 
-        displayData(currentAccount);
+            displayData(currentAccount);
+
+            // Resetting session timer
+            clearInterval(timerLogout);
+            timerLogout = startSessionTimer();
+        }, 500)
     }
 })
 
@@ -420,14 +423,18 @@ btnLoan.addEventListener('click', function (e) {
             showErrorMessage('Enter a value');
         }
     } else {
-        // adding after 1.2 seconds delay
+        // adding after 1 seconds delay
         setTimeout(() => {
             currentAccount.transactions.push(amount);
 
             currentAccount.transactionsDates.push(new Date().toISOString());
 
             displayData(currentAccount);
-        }, 1200);
+
+            // Resetting session timer
+            clearInterval(timerLogout);
+            timerLogout = startSessionTimer();
+        }, 1000);
     }
 
     inputLoanAmount.value = '';
@@ -485,8 +492,11 @@ let countdownTimer;
 function startSessionTimer() {
     clearInterval(countdownTimer);
 
+    // 10 minutes for session
     sessionTimeout = 600;
     timeLeft = sessionTimeout;
+
+    updateSessionTimerDisplay(timeLeft);
 
     countdownTimer = setInterval(function () {
         timeLeft--;
@@ -510,13 +520,3 @@ function handleSessionExpired() {
     containerApp.style.opacity = 0;
     labelIntroSentence.textContent = 'Log into your account';
 }
-
-
-
-// test
-const ingredients = ['olives', ''];
-const pizzaTimer = setTimeout((ing1, ing2) => {
-    console.log(`Here is your pizza with ${ing1} and ${ing2}`)
-}, 3000, ...ingredients);
-
-if (ingredients.includes('spinach')) clearTimeout(pizzaTimer);
