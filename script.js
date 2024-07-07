@@ -380,6 +380,7 @@ btnTransfer.addEventListener('click', function (e) {
             showErrorMessage('You can\'t transfer to yourself');
         }
     } else {
+        // adding after 1 seconds delay
         setTimeout(() => {
             currentAccount.transactions.push(-amount);
             receiveAccount.transactions.push(amount);
@@ -422,7 +423,7 @@ btnLoan.addEventListener('click', function (e) {
             showErrorMessage('Enter a value');
         }
     } else {
-        // adding after 1.2 seconds delay
+        // adding after 1 seconds delay
         setTimeout(() => {
             currentAccount.transactions.push(amount);
 
@@ -433,7 +434,7 @@ btnLoan.addEventListener('click', function (e) {
             // Resetting session timer
             clearInterval(timerLogout);
             timerLogout = startSessionTimer();
-        }, 1200);
+        }, 1000);
     }
 
     inputLoanAmount.value = '';
