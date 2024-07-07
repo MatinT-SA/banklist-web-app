@@ -317,14 +317,6 @@ btnLogin.addEventListener('click', function (e) {
 
         labelDate.textContent = new Intl.DateTimeFormat(currentAccount.locale, options).format(date);
 
-        // const date = new Date();
-        // const year = date.getFullYear();
-        // const month = `${date.getMonth() + 1}`.padStart(2, 0);
-        // const day = `${date.getDate()}`.padStart(2, 0);
-        // const hour = `${date.getHours()}`.padStart(2, 0);
-        // const min = `${date.getMinutes()}`.padStart(2, 0);
-        // labelDate.textContent = `${year}/${month}/${day}, ${hour}:${min}`;
-
         startSessionTimer();
 
         displayData(currentAccount);
@@ -485,6 +477,7 @@ let countdownTimer;
 function startSessionTimer() {
     clearInterval(countdownTimer);
 
+    // 10 minutes for session
     sessionTimeout = 600;
     timeLeft = sessionTimeout;
 
