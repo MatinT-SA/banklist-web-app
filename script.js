@@ -83,6 +83,9 @@ const accounts = [account1, account2, account3, account4];
 
 // Elements selection
 const smallWidth = window.innerWidth < 700;
+
+let timerLogout;
+
 const labelIntroSentence = document.querySelector('.intro-sentence');
 const labelDate = document.querySelector('.date');
 const labelBalance = document.querySelector('.balance__value');
@@ -317,7 +320,8 @@ btnLogin.addEventListener('click', function (e) {
 
         labelDate.textContent = new Intl.DateTimeFormat(currentAccount.locale, options).format(date);
 
-        startSessionTimer();
+        if (timerLogout) clearInterval(timerLogout);
+        timerLogout = startSessionTimer();
 
         displayData(currentAccount);
 
@@ -376,13 +380,19 @@ btnTransfer.addEventListener('click', function (e) {
             showErrorMessage('You can\'t transfer to yourself');
         }
     } else {
-        currentAccount.transactions.push(-amount);
-        receiveAccount.transactions.push(amount);
+        setTimeout(() => {
+            currentAccount.transactions.push(-amount);
+            receiveAccount.transactions.push(amount);
 
-        currentAccount.transactionsDates.push(new Date().toISOString());
-        receiveAccount.transactionsDates.push(new Date().toISOString());
+            currentAccount.transactionsDates.push(new Date().toISOString());
+            receiveAccount.transactionsDates.push(new Date().toISOString());
 
-        displayData(currentAccount);
+            displayData(currentAccount);
+
+            // Resetting session timer
+            clearInterval(timerLogout);
+            timerLogout = startSessionTimer();
+        }, 500)
     }
 })
 
@@ -419,6 +429,10 @@ btnLoan.addEventListener('click', function (e) {
             currentAccount.transactionsDates.push(new Date().toISOString());
 
             displayData(currentAccount);
+
+            // Resetting session timer
+            clearInterval(timerLogout);
+            timerLogout = startSessionTimer();
         }, 1200);
     }
 
