@@ -496,6 +496,8 @@ function startSessionTimer() {
     sessionTimeout = 600;
     timeLeft = sessionTimeout;
 
+    updateSessionTimerDisplay(timeLeft);
+
     countdownTimer = setInterval(function () {
         timeLeft--;
         if (timeLeft < 0) {
