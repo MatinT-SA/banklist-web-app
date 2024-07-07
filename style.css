@@ -601,6 +601,20 @@ h2 {
     }
 }
 
+@media (max-width: 850px) {
+    .transactions__row {
+        padding: 2rem;
+    }
+
+    .transactions__value {
+        font-size: 1.5rem;
+    }
+
+    .transactions__type {
+        font-size: 1.1rem;
+    }
+}
+
 @media (max-width: 750px) {
     .intro-sentence {
         display: none;
