@@ -79,7 +79,27 @@ const account4 = {
     ]
 };
 
-const accounts = [account1, account2, account3, account4];
+const account5 = {
+    client: 'Andy Murray',
+    pin: 1238,
+    interestRate: 1.2,
+    transactions: [100, -450, 200, -50, 800, -230, 510, -378],
+    currency: 'GBP',
+    locale: 'en-GB',
+
+    transactionsDates: [
+        '2024-06-28T10:30:00Z',
+        '2024-06-29T12:45:15Z',
+        '2024-06-30T08:20:45Z',
+        '2024-07-01T14:10:30Z',
+        '2024-07-02T16:25:50Z',
+        '2024-07-03T11:35:40Z',
+        '2024-07-04T09:50:20Z',
+        '2024-07-06T13:55:10Z'
+    ]
+};
+
+const accounts = [account1, account2, account3, account4, account5];
 
 // Elements selection
 const smallWidth = window.innerWidth < 700;
