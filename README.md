@@ -9,5 +9,6 @@ BankList is a fully responsive web app optimized for seamless user experience on
   mt: 1234,
   rf: 1235,
   rn: 1236,
-  nd: 1237
+  nd: 1237,
+  am: 1238
 ]
