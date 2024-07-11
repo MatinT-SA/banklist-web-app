@@ -4,10 +4,9 @@ BankList is a fully responsive web app optimized for seamless user experience on
 ![Banklist-linkedin](https://github.com/MatinT-SA/Banklist/assets/85360666/92175ed3-51f1-42b2-8832-6a34bf3c0098)
 
 
-# Users (respectively):
-- Usernames & Pins: [
-  mt: 1234,
-  rf: 1235,
-  rn: 1236,
-  nd: 1237
-]
+- Usernames & Pins:
+  - mt: 1234
+  - rf: 1235
+  - rn: 1236
+  - nd: 1237
+  - am: 1238
