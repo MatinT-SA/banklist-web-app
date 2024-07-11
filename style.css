@@ -68,7 +68,7 @@ nav {
 .logo {
     height: 10rem;
     transition: .2s ease-in;
-    cursor: var(--cursor-point)
+    cursor: var(--cursor-point);
 }
 
 .logo:hover {
